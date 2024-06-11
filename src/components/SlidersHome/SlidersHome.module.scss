@@ -1,0 +1,120 @@
+.globalDivSliders {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .slider {
+        margin-top: 10px;
+        img {
+            border-radius: 15px;
+        }
+    }
+    .someFireworks {
+        margin-left: 70px;
+        .firstBlock {
+            display: flex;
+        }
+        .secondBlock {
+            display: flex;
+        }
+    }
+}
+
+.img {
+    height: 178px;
+    width: 272px;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-radius: 15px;
+}
+.responsibleDivs {
+    margin-top: 25px;
+    display: none;
+    flex-direction: column;
+    .topItem {
+        display: flex;
+        margin-top: 15px;
+    }
+    .item {
+        margin-left: 15px;
+        &:first-child {
+            margin-left: 0;
+        }
+        background: linear-gradient(0deg, rgb(31, 31, 37), rgb(27, 27, 33));
+        color: rgb(21, 22, 26);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 150px;
+        width: 160px;
+        position: relative;
+        border: none;
+        border-radius: 15px 15px 15px 15px;
+        outline: none;
+        transition: 150ms transform;
+        box-shadow: 0 5px 15px 0px rgba(11, 11, 13, 0.5);
+        transition: 0.2s;
+        cursor: pointer;
+        &:hover {
+            transform: scale(1.08);
+        }
+        img {
+            height: 140px;
+            position: relative;
+            margin-bottom: 40px;
+        }
+        .smaller {
+            height: 110px !important;
+        }
+        .information {
+            position: absolute;
+            margin-top: 80px;
+            h1 {
+                font-size: 14px;
+                color: white;
+            }
+            p {
+                font-size: 11px;
+                color: white;
+                text-align: center;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.svgRight {
+    height: 15px;
+    width: 9px;
+    path {
+        fill: #4e5565;
+        transition: .1s;
+    }
+}
+.svgRight:hover {
+    path {
+        fill: #61697c;
+    }
+}
+
+@media (max-width: 1220px) {
+    .globalDivSliders {
+        display: none !important;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .globalDivSliders {
+        display: flex;
+        flex-direction: row;
+    }
+}
+@media (max-width: 628px) {
+    .globalDivSliders {
+        display: none;
+    }
+    .responsibleDivs {
+        display: flex;
+    }
+}

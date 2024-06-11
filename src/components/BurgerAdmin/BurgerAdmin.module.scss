@@ -1,0 +1,87 @@
+.BurgerAdmin {
+    left: -400px;
+    top: 0;
+    position: relative;
+    width: 400px;
+    height: 100vh;
+    background-color: white;
+    transition: .3s;
+  @media (max-width: 1020px) {
+    width: 100vw;
+  }
+}
+.BurgerAdminWrapper {
+    opacity: 0;
+    pointer-events: none;
+    z-index: 100;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.226);
+    backdrop-filter: blur(5px);
+    transition: .3s;
+}
+.active {
+    left: 0px;
+}
+.activeWrapper {
+    opacity: 1;
+    pointer-events: all;
+}
+.exit {
+    margin-top: 135px;
+    // border-top: 1px solid rgb(52, 55, 66);
+    border-bottom: 1px solid rgb(52, 55, 66);
+  
+    h3 {
+      color: rgb(255, 29, 29) !important;
+    }
+  }
+.sidebar {
+    height: 93%;
+    // width: 26%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .item {
+      display: flex;
+      align-items: center;
+      padding: 6px 12px;
+      height: 60px;
+      cursor: pointer;
+      width: 100%;
+      text-decoration: none;
+      // border-bottom: 1px solid rgb(52, 55, 66);
+      transition: .2s;
+      h3 {
+        font-weight: 500;
+        color: black;
+        transition: .2s;
+      }
+      &:hover {
+        
+        background-color: rgba(0, 0, 0, 0.027);
+        h3 {
+          color: rgb(247, 110, 6);
+        }
+      }
+    }
+  }
+.header {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    h3 {
+        font-size: 23px;
+        font-weight: 400;
+    }
+}
+.close {
+    margin-right: 25px;
+    background-color: transparent;
+    font-size: 32px;
+    border: 0;
+    cursor: pointer;
+}

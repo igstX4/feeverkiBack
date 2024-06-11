@@ -1,0 +1,168 @@
+.Reviews {
+    display: flex;
+    width: 100vw;
+    flex-direction: column;
+    margin-top: 30px;
+    align-items: center;    
+    .emotion {
+        font-size: 16px;
+        line-height: 1.6;
+        letter-spacing: 0em;
+        @media (max-width: 1220px) {
+            font-size: 14px;
+            width: 90%;
+            text-align: center;
+        }
+    }
+    .blocks {
+        display: flex;
+        align-items: center;
+        .videos {
+            display: flex;
+            .video {
+                margin-right: 30px;
+                background-position: center center;
+                background-size: cover;
+                background-repeat: repeat;
+                border-radius: 15px;
+                box-shadow: 2px 4px 15px 0px rgba(0, 0, 0, 0.2);
+                cursor: pointer;
+                width: 240px;
+                height: 425px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                &:last-child {
+                    margin-right: 0;
+                }
+                div {
+                    padding-left: 4px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                    width: 70px;
+                    height: 70px;
+                    background-color: rgb(247, 110, 6);
+                }
+                @media (max-width: 1220px) {
+                    width: 148px;
+                    height: 265px;
+                }
+            }
+        }
+        @media (max-width: 1220px) {
+            flex-direction: column;
+            .videos {
+                margin-top: 20px;
+            }
+        }
+    }
+    .ReviewsBlocks {
+        margin-left: 15px;
+        .block {
+            margin-top: 15px;
+            width: 590px;
+            display: flex;
+            padding: 25px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 15px;
+            box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.1);
+            flex-direction: column;
+            .top {
+                justify-content: space-between;
+                display: flex;
+                .yandex {
+                    img {
+                        width: 140px;
+                        height: auto;
+                    }
+                    p {
+                        font-size: 14px;
+                        line-height: 1;
+                        letter-spacing: 0em;
+                        opacity: 0.8;
+                    }
+                }
+                .mark {
+                    display: flex;
+                    .markText {
+                        font-size: 38px;
+                        line-height: 1.6;
+                        letter-spacing: 0em;
+                        opacity: 1;
+                        margin-right: 15px;
+                    }
+                    div {
+                        p {
+                            font-size: 15px;
+                            line-height: 1.6;
+                            letter-spacing: 0em;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+            hr {
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+            .message {
+                display: flex;
+                align-items: center;
+                img {
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 50%;
+                }
+                    div {
+                        margin-left: 13px;
+                        h3 {
+                            font-size: 12px;
+                            // line-height: 1.6;
+                            letter-spacing: 0em;
+                            font-weight: bold;
+                        }
+                        p {
+                            font-size: 12px;
+                            line-height: 1.6;
+                            letter-spacing: 0em;
+                            opacity: 0.8;
+                        }
+                    }
+                
+            }
+            .more {
+                font-size: 12px;
+                line-height: 1.6;
+                letter-spacing: 0em;
+                opacity: 0.5;
+                text-align: center;
+                margin-top: 8px;
+            }
+            @media (max-width: 1220px) {
+                width: 335px;
+                .yandex {
+                    img {
+                        width: 95px !important;
+                    }
+                    p {
+                        font-size: 10px !important;
+                    }
+                }
+                .mark {
+                    img {
+                        width: 70px;
+                        height: auto;
+                    }
+                    .count1 {
+                        font-size: 14px !important;
+                    }
+                }
+            }
+            @media (max-width: 352px) {
+                width: 95vw;
+            }
+        }
+    }
+}
