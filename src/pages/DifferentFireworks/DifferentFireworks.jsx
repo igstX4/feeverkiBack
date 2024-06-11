@@ -9,7 +9,7 @@ import {Catalog} from "../../components/Catalog/Catalog";
 import {Slider, Switch} from 'antd';
 import {useNavigate, useParams} from "react-router-dom";
 
-const DifferentFireworks = ({defaultFilter}) => {
+const DifferentFireworks = ({defaultFilter, category}) => {
     const [products, setProducts] = useState()
     const [textBlock, setTextBlock] = useState(false)
     const [count, setCount] = useState()
@@ -21,37 +21,44 @@ const DifferentFireworks = ({defaultFilter}) => {
     const [desk, setDesk] = useState()
     const [filteredArr, setFilteredArr] = useState()
     const [defaultFilter1, setDefaultFilter] = useState()
-    const {type} = useParams()
+    const {type, name} = useParams()
     const navigate = useNavigate()
     console.log(type)
 
 
     const getProducts = async () => {
         try {
-            const {data} = await axios.get("/getAllProducts");
-            setProducts(data);
-            setFilteredArr(data)
-            if (type === "all") {
+            if (!category) {
+                const {data} = await axios.get("/getAllProducts");
+                setProducts(data);
                 setFilteredArr(data)
-                setLineText('ВСЕ САЛЮТЫ')
-                setDesk('')
-            } else if (type === "small") {
-                const filteredArr1 = data.filter((item) => item.price <= 3000)
-                setFilteredArr(filteredArr1)
-                setLineText('МАЛЫЕ САЛЮТЫ')
-                setDesk('Салюты до 3 000 ₽')
-
-            } else if (type === "big") {
-                const filteredArr1 = data.filter((item) => item.price <= 3000)
-                const filteredArr2 = filteredArr1.filter((item) => item.price >= 10000)
-                setFilteredArr(filteredArr2)
-                setLineText('БОЛЬШИЕ САЛЮТЫ')
-                setDesk('Салюты от 3 000 ₽ до 10 000 ₽')
-            } else if (type === "super") {
-                const filteredArr1 = data.filter((item) => item.price <= 10000)
-                setFilteredArr(filteredArr1)
-                setLineText('СУПЕР САЛЮТЫ')
-                setDesk('Салюты от 10 000 ₽')
+                if (type === "all") {
+                    setFilteredArr(data)
+                    setLineText('ВСЕ САЛЮТЫ')
+                    setDesk('')
+                } else if (type === "small") {
+                    const filteredArr1 = data.filter((item) => item.price <= 3000)
+                    setFilteredArr(filteredArr1)
+                    setLineText('МАЛЫЕ САЛЮТЫ')
+                    setDesk('Салюты до 3 000 ₽')
+    
+                } else if (type === "big") {
+                    const filteredArr1 = data.filter((item) => item.price >= 3000)
+                    const filteredArr2 = filteredArr1.filter((item) => item.price <= 10000)
+                    setFilteredArr(filteredArr2)
+                    setLineText('БОЛЬШИЕ САЛЮТЫ')
+                    setDesk('Салюты от 3 000 ₽ до 10 000 ₽')
+                } else if (type === "super") {
+                    const filteredArr1 = data.filter((item) => item.price >= 10000)
+                    setFilteredArr(filteredArr1)
+                    setLineText('СУПЕР САЛЮТЫ')
+                    setDesk('Салюты от 10 000 ₽')
+                }
+            } else {
+                const {data} = await axios.get(`/getAllProducts/${name}`)
+                console.log(data, name)
+                setProducts(data);
+                setFilteredArr(data)
             }
         } catch (error) {
             console.error("Error fetching products:", error);

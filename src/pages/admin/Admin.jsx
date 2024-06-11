@@ -1,6 +1,6 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import s from './Admin.module.scss'
-import {Link, Outlet, useNavigate} from "react-router-dom";
+import {Link, Outlet, useLocation, useNavigate} from "react-router-dom";
 import {Login} from '../../components/admin/Login/Login';
 import {useDispatch} from "react-redux";
 import {signOut} from "../../store/user/userSlice";
@@ -9,12 +9,18 @@ import BurgerAdmin from '../../components/BurgerAdmin/BurgerAdmin';
 export const Admin = ({user}) => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const location = useLocation()
     const handleExit = () => {
         dispatch(signOut())
         navigate('/admin/login')
     }
     console.log(user)
     const [opened, setOpened] = useState(false)
+    useEffect(() => {
+        if (location.pathname === '/admin') {
+            navigate('/admin/changePassword')
+        }
+    }, [])
     return (
         <>
             <BurgerAdmin isOpened={opened} setOpened={() => setOpened(!opened)}/>

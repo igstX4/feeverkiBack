@@ -4,6 +4,8 @@ import s from './Header.module.scss'
 import {Book, Search, Cart} from './Svgs'
 import {useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
+import axios from 'axios';
+import instance from '../../axios/axios';
 
 
 const HeaderResponsive = ({setModal}) => {
@@ -35,6 +37,21 @@ const Header = ({setModal, setFilter}) => {
     const [catalogOpened, setCatalog] = useState(false)
     const navigate = useNavigate()
     const state = useSelector(state => state.basket)
+    const [categories, setCategories] = useState()
+    const getCategories = async() => {
+        try {
+            const {data} = await instance.get('/getAllCategories')
+            if (data) {
+                setCategories(data)
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    }
+    useEffect(() => {
+        getCategories()
+    }, [])
+    console.log(categories)
     const handleFilter = (min, max) => {
         if (setFilter) {
             setFilter(min, max)
@@ -73,7 +90,7 @@ const Header = ({setModal, setFilter}) => {
                                <div className={s.vertical + " " + s.lastOne}>
                                    <div className={s.infoDiv}>
                                        <h3>Актуальные</h3>
-                                       <p>ТУТ КАТЕГОРИИ</p>
+                                       {categories && categories.map((item) => <p onClick={() => navigate(`/category/${item.category}`)}>{item.category}</p>)}
                                    </div>
                                </div>
                            </div>
