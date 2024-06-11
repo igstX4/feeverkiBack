@@ -1,0 +1,127 @@
+.AdminWrapper {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  
+}
+.AdminWrapper2 {
+  display: flex;
+  justify-content: center;
+  height: 93vh;
+  align-items: center;
+  flex-direction: column;
+}
+.header { 
+  width: 100vw;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  box-shadow: 0px -1px 35px -20px rgba(0,0,0,0.75);
+  h2 {
+    font-weight: 500;
+    font-size: 27px;
+  }
+  button {
+    visibility: hidden;
+    margin-left: 10px;
+    background-color: transparent;
+    border: 0;
+    font-size: 35px;
+    cursor: pointer;
+  }
+  p {
+    font-size: 18px;
+    margin-right: 16px;
+  }
+  align-items: center;
+  @media (max-width: 1020px) {
+    button {
+      visibility: visible;
+    }
+    h2 {
+      display: none;
+    }
+   
+  }
+}
+.Admin {
+  min-width: 1000px;
+  display: flex;
+  border-radius: 6px;
+  padding: 35px;
+  min-height: 500px;
+  justify-content: space-between;
+  box-shadow: 0px -1px 35px -20px rgba(0,0,0,0.75);
+  @media (max-width: 1020px) {
+    min-width: auto;
+    width: 97vw;
+    justify-content: center;
+    padding: 20px 10px;
+  }
+}
+.line {
+  // height: 90%;
+  width: 1px;
+  opacity: 0.3;
+  background-color: rgb(52, 55, 66);
+  @media (max-width: 1020px) {
+    display: none;
+  }
+}
+.content {
+  display: flex;
+  justify-content: flex-start;
+  //margin-left: 20px;
+  align-items: center;
+  min-height: 500px;
+  width: 70%;
+  @media (max-width: 1020px) {
+    width: 85vw;
+  }
+}
+.sidebar {
+  height: 100%;
+  // width: 26%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  .item {
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    height: 60px;
+    cursor: pointer;
+    width: 100%;
+    text-decoration: none;
+    // border-bottom: 1px solid rgb(52, 55, 66);
+    transition: .2s;
+    h3 {
+      font-weight: 500;
+      color: black;
+      transition: .2s;
+    }
+    &:hover {
+      
+      background-color: rgba(0, 0, 0, 0.027);
+      h3 {
+        color: rgb(247, 110, 6);
+      }
+    }
+  }
+  @media (max-width: 1020px) {
+    display: none;
+  }
+}
+.exit {
+  margin-top: 135px;
+  // border-top: 1px solid rgb(52, 55, 66);
+  border-bottom: 1px solid rgb(52, 55, 66);
+
+  h3 {
+    color: rgb(255, 29, 29);
+  }
+}
+//

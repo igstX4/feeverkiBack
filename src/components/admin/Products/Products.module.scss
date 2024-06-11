@@ -1,0 +1,180 @@
+.categoryContainer {
+  min-height: 500px;
+  width: 100%;
+
+  .categoryTitle {
+    display: flex;
+    flex-direction: column;
+
+    h1 {
+      font-size: 28px;
+      font-weight: 500;
+    }
+
+    h3 {
+      margin-top: 10px;
+      font-size: 20px;
+      font-weight: 400;
+    }
+
+    input {
+      margin-top: 15px;
+      width: 250px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      outline: none;
+      transition: border-color 0.2s ease-in-out;
+    }
+
+    input:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25);
+    }
+
+    .addCategoryBtn {
+      margin-top: 10px;
+      width: 200px;
+      height: 45px;
+      outline: none;
+      border: none;
+      border-radius: 5px;
+      background: linear-gradient(168deg, rgb(255, 141, 0), rgb(255, 49, 92));
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: .3s;
+
+      &:hover {
+        background: linear-gradient(168deg, rgb(230, 127, 0), rgb(255, 19, 68));
+      }
+    }
+  }
+
+  .categoryList {
+    max-width: 100%;
+
+    .item {
+      margin-top: 20px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      background-color: #f0f0f0;
+      border-radius: 10px;
+      padding: 10px;
+      margin-right: 10px;
+
+      .editDiv {
+        display: flex;
+        flex-direction: row;
+
+        .delete {
+          cursor: pointer;
+          margin-left: 10px;
+          transition: 0.1s;
+        }
+
+        .delete:hover {
+          color: rgba(255, 0, 0, 0.801);
+        }
+
+        .edit {
+          cursor: pointer;
+          transition: 0.1s;
+        }
+
+        .edit:hover {
+          color: rgb(247, 110, 6);
+        }
+      }
+    }
+  }
+}
+
+.trItem {
+  .tdImg {
+    text-align: center !important;
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+}
+
+.table {
+  table-layout: fixed;
+  width: 90%;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (max-width: 768px) {
+    width: 85vw;
+  }
+  @media (max-width: 500px) {
+    align-items: flex-start;
+  }
+}
+
+.table th {
+  font-weight: bold;
+  padding: 5px;
+  width: 170px;
+  background: #efefef;
+  border: 1px solid #dddddd;
+  @media (max-width: 768px) {
+
+  }
+}
+@media (max-width: 500px) {
+  .tr {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 5px;
+    th {
+      margin: 3px;
+    }
+  }
+  thead {
+    width: 85vw;
+    display: flex;
+    justify-content: center;
+  }
+  tbody {
+    display: flex;
+    max-width: 85vw;
+    flex-direction: column;
+    tr {
+      display: flex;
+      flex-direction: column;
+      margin-top: 15px;
+      td {
+        padding: 10px !important;
+      }
+    }
+  }
+}
+@media (max-width: 400px) {
+  .tr {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 5px;
+    th {
+      width: 90vw;
+      }
+  }
+}
+
+.table td {
+  cursor: pointer;
+  padding: 0px 10px;
+  border: 1px solid #eee;
+  text-align: left;
+}

@@ -1,0 +1,310 @@
+
+.itemss {
+
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  .totalOrder {
+    margin-left: 20px;
+    background-color: rgb(255, 255, 255);
+    max-width: 334px;
+    border-radius: 15px;
+    box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.07);
+    padding-top: 25px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    .getOrder {
+      width: 320px;
+
+      .dateDiv {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        label {
+          font-weight: normal;
+          opacity: 0.8;
+          margin-bottom: 6px;
+          font-size: 13px;
+          word-wrap: break-word;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+        }
+
+        .customDatepicker {
+          background-color: rgb(244, 245, 246);
+        }
+        .customDatepicker:hover {
+          border-color: rgb(247, 110, 6);
+          background-color: rgb(241, 242, 244);
+        }
+      }
+
+      .nameInputDiv {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+
+        select {
+
+        }
+
+        label {
+          font-weight: normal;
+          opacity: 0.8;
+          margin-bottom: 6px;
+          font-size: 13px;
+          word-wrap: break-word;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+        }
+
+        input, select {
+          height: auto;
+          line-height: 1.2;
+          box-shadow: none;
+          background-color: rgb(244, 245, 246);
+          color: rgba(0, 0, 0, 0.85);
+          border: 1px solid rgba(0, 0, 0, 0.05);
+          border-radius: 5px;
+          padding: 11px 8.8px;
+          font-size: 13px;
+          outline: none;
+          cursor: initial;
+        }
+
+        input:focus {
+          border-color: rgb(247, 110, 6);
+          background-color: rgb(241, 242, 244);
+        }
+      }
+
+      .headerItem {
+        display: flex;
+        width: 95%;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(219, 219, 219, 0.75);
+        padding-bottom: 10px;
+
+        .back {
+          font-size: 16px;
+          color: rgb(138, 138, 138) !important;
+          cursor: pointer;
+        }
+
+        .totalMoney {
+          color: #333;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .wrapper {
+      p {
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        opacity: 1;
+      }
+    }
+
+    .greyBg {
+      display: flex;
+      justify-content: center;
+
+      .total {
+        padding: 5px;
+        background-color: rgba(211, 213, 220, 0.25);
+        border-radius: 10px;
+        margin-top: 20px;
+        width: 80%;
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    .orderText {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.2;
+      opacity: 1;
+    }
+
+    button {
+      margin-top: 20px;
+      background: linear-gradient(170deg, rgb(250, 139, 54), rgb(247, 60, 5));
+      color: rgb(255, 255, 255);
+      font-size: 13px;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 13px 0;
+      display: flex;
+      justify-content: center;
+      max-width: 100%;
+      width: 100%;
+      border: none;
+      border-radius: 10px 10px 10px 10px;
+      outline: none;
+      box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+
+  .itemContainer {
+    color: #333;
+    padding: 20px;
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+    min-width: 780px;
+    max-height: 150px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 2px 15px 0px rgba(0, 0, 0, 0.06);
+
+    .wrapped {
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    img {
+      width: 100px;
+      height: 100px;
+    }
+
+    .itemInfo {
+      width: 37.4708%;
+      margin-left: 20px;
+    }
+
+    .btns {
+      display: flex;
+      align-items: center;
+      color: #333;
+      padding: 5px;
+
+      p {
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+
+
+    }
+
+    .price {
+      width: 23.3%;
+
+      p {
+        margin-left: 40px;
+      }
+    }
+  }
+
+  .clearBasket {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: 128px;
+      height: 128px;
+    }
+
+    p {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 24px;
+      line-height: 1.4;
+      letter-spacing: 0em;
+      color: rgb(160, 160, 160);
+      opacity: 1;
+    }
+
+    button {
+      display: flex;
+      justify-content: center;
+      background: linear-gradient(170deg, rgb(250, 139, 54), rgb(247, 60, 5));
+      color: rgb(255, 255, 255);
+      font-size: 13px;
+      padding: 13px 0;
+      max-width: 100%;
+      width: 100%;
+      border: none;
+      border-radius: 10px 10px 10px 10px;
+      outline: none;
+      transition: 150ms transform;
+      box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.15);
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+
+}
+
+.btn, .btnItem {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  background-color: white;
+  border-radius: 4px;
+  user-select: none;
+  transition: .1s;
+}
+
+.btnItem:hover {
+  color: #333;
+  background-color: #ebebeb;
+  border-color: #adadad;
+}
+
+.btn:hover {
+  color: #333;
+  background-color: #ebebeb;
+  border-color: #adadad;
+}
+
+.error {
+  color: #e30a0a;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+@media (max-width: 1200px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .itemContainer{
+    width: 90%;
+    min-width: 0px !important;
+  }
+  .totalOrder {
+    margin-top: 20px;
+  }
+  .itemContainer {
+    width: 400px !important;
+  }
+  .wrapped {
+    display: flex;
+    flex-direction: column;
+  }
+  .btn {
+    display: none !important;
+  }
+}
