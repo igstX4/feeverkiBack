@@ -20,7 +20,7 @@ export const Admin = ({user}) => {
         if (location.pathname === '/admin') {
             navigate('/admin/changePassword')
         }
-    }, [])
+    }, [location])
     return (
         <>
             <BurgerAdmin isOpened={opened} setOpened={() => setOpened(!opened)}/>
