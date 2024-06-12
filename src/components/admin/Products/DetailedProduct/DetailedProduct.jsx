@@ -25,7 +25,7 @@ const DetailedProduct = () => {
                 message: 'Успех.',
                 duration: 1.5
             });
-            window.location.replace('http://localhost:4000/admin')
+            window.location.replace('https://feeverki-back.vercel.app/admin')
         } catch (e) {
             console.log(e)
         }
