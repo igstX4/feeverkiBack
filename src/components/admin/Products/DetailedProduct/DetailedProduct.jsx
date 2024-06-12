@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import style from './DetailedProduct.module.scss'
 import {useNavigate, useParams} from "react-router-dom";
 import {notification} from "antd";
-import axios from "../../../../axios/axios";
+import axios, { url } from "../../../../axios/axios";
 import EditProductModal from "../../Modals/EditProductModal/EditProductModal";
 
 const DetailedProduct = () => {
@@ -42,7 +42,7 @@ const DetailedProduct = () => {
                         </div>
                         <h3>Информация об этом продукте</h3>
                         <div className={style.productInfo}>
-                            <img src={`http://localhost:4000/internal/uploads/${product?.image}`} alt="/"/>
+                            <img src={`${url}/uploads/${product?.image}`} alt="/"/>
                             <p className={style.title}>Название: <span>{product?.name}</span></p>
                             <p className={style.title}>Категория: <span>{product?.category}</span></p>
                             <p className={style.title}>Цена: <span>{product?.price} ₽</span></p>

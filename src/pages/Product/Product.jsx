@@ -8,7 +8,7 @@ import sekundomer from '../../assets/Секундомер (1).png'
 import effects from '../../assets/Эффекты1.png'
 import {PhotoView} from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
-import axios from "../../axios/axios";
+import axios, { url } from "../../axios/axios";
 import deliver from '../../assets/Время-доставки.png'
 import img1 from '../../assets/doc-1.png'
 
@@ -36,8 +36,8 @@ const Product = () => {
                                         src={"//www.youtube.com/embed/dLVQSv6n_dQ?autoplay=1&loop=0&rel=0&modestbranding=0"}></iframe>
                             </div>
                             <div className={style.photodiv}>
-                                <PhotoView src={`http://localhost:4000/internal/uploads/${product?.image}`}>
-                                    <img src={`http://localhost:4000/internal/uploads/${product?.image}`} alt="/"/>
+                                <PhotoView src={`${url}/uploads/${product?.image}`}>
+                                    <img src={`${url}/uploads/${product?.image}`} alt="/"/>
                                 </PhotoView>
                             </div>
                         </div>

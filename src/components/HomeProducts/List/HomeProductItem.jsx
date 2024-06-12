@@ -7,6 +7,7 @@ import effects from '../../../assets/Эффекты.png'
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, deleteFromCart } from "../../../store/basket/basketSlice";
 import { useNavigate } from "react-router-dom";
+import { url } from '../../../axios/axios'
 
 const HomeProductItem = ({ product }) => {
     const dispatch = useDispatch()
@@ -17,7 +18,7 @@ const HomeProductItem = ({ product }) => {
     return (
         <div className={style.itemWrapper} onClick={() => navigate(`/product/${product?.name}`)}>
             <div className={style.imgDiv}>
-                <img className={style.imgf} src={`http://localhost:4000/internal/uploads/${product?.image}`} alt='/' />
+                <img className={style.imgf} src={`${url}/uploads/${product?.image}`} alt='/' />
             </div>
             <div className={style.titleDiv}>
                 <h3>{product?.name}</h3>

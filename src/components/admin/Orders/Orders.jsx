@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import style from './Orders.module.scss'
 import AddProductModal from "../Modals/AddProductModal/AddProductModal";
 import {useDebounce} from "../../../hooks/useDebounce";
-import axios from "../../../axios/axios";
+import axios, { url } from "../../../axios/axios";
 
 const Orders = () => {
     const [orders, setOrders] = useState()
@@ -74,7 +74,7 @@ const Orders = () => {
                                     <td>{item.address}</td>
                                     <td>{item.count}</td>
                                     <td onClick={() => window.location.replace(`http://localhost:3000/admin/product/${item.product._id}`)}>
-                                        <img className={style.img} src={`http://localhost:4000/internal/uploads/${item.product.image}`} alt="/"/>
+                                        <img className={style.img} src={`${url}/uploads/${item.product.image}`} alt="/"/>
                                     </td>
                                     <td onClick={() => window.location.replace(`http://localhost:3000/admin/product/${item.product._id}`)}>
                                         {item.product.name}

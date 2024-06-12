@@ -3,7 +3,7 @@ import style from './SlidersHome.module.scss'
 import { data } from '../../utils/slider_data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
-import axios from "../../axios/axios";
+import axios, { url } from "../../axios/axios";
 
 const SlidersHome = () => {
     const listRef = useRef();
@@ -107,7 +107,7 @@ const SlidersHome = () => {
                                     <ul className={"ul"}>
                                         {sliders?.map((item, index) => (
                                             <li key={index} className={"li"}>
-                                                <img src={`http://localhost:4000/internal/uploads/${item.img}`}
+                                                <img src={`${url}/uploads/${item.img}`}
                                                     alt={'/'} />
                                             </li>
                                         ))}

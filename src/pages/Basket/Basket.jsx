@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import cat from '../../assets/cat.png'
 import { changeQuantity, deleteFromCart } from '../../store/basket/basketSlice';
 import { useNavigate } from 'react-router-dom';
+import { url } from '../../axios/axios';
 
 const Basket = () => {
     const [open, setOpen] = useState(false)
@@ -30,7 +31,7 @@ const Basket = () => {
                             <>
                                 <div className={style.itemContainer} key={item._id}>
                                     <img
-                                        src={`http://localhost:4000/internal/uploads/${item.img}`}
+                                        src={`${url}/uploads/${item.img}`}
                                         alt="/"
                                     />
                                     <div className={style.wrapped}>

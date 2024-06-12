@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useDebounce } from "../../../hooks/useDebounce";
 import EditCategoryModal from "../Modals/EditCategoryModal/EditCategoryModal";
 import CreateCategoryModal from '../Modals/CreateCategoryModal/CreateCategoryModal';
-import axios from "../../../axios/axios";
+import axios, { url } from "../../../axios/axios";
 import EditSliderModal from "../Modals/EditSlider/EditSlider";
 import CreateSliderItem from "../Modals/CreateSliderItem/CreateSliderItem";
 
@@ -53,7 +53,7 @@ const Slider = () => {
                             <div className={style.item} key={item._id}>
                                 <div>
                                     <p>{i + 1}. {item.category}</p>
-                                    <img src={`http://localhost:4000/internal/uploads/${item.img}`} alt="/" style={{marginTop: "5px", width: "100px", height: "60px"}}/>
+                                    <img src={`${url}/uploads/${item.img}`} alt="/" style={{marginTop: "5px", width: "100px", height: "60px"}}/>
                                 </div>
                                 <div className={style.editDiv}>
                                     <p onClick={() => {
