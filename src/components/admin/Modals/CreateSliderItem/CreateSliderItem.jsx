@@ -45,6 +45,7 @@ const CreateCategoryModal = ({update, createModal, setCreateModal}) => {
                 }
             })
             setCreateModal(false)
+            setFileList(null)
             update()
         } catch (e) {
             console.log(e)

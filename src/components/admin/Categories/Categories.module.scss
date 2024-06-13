@@ -48,7 +48,8 @@
 
   .categoryList {
     max-width: 100%;
-
+    height: 400px;
+    overflow-y: auto;
     .item {
       margin-top: 20px;
       display: flex;

@@ -33,6 +33,14 @@ const Categories = () => {
         setActiveCategory(item)
         setEditModal(!editModal)
     }
+    const handleDelete = async (id) => {
+        try {
+            const { data } = await axios.delete(`/categoryDelete/${id}`);
+            getCategories();
+        } catch (e) {
+            console.log(e)
+        }
+    }
 
     return (
         <div className={style.categoryContainer}>
@@ -61,7 +69,7 @@ const Categories = () => {
                                     }} className={style.edit}>
                                         Редактировать
                                     </p>
-                                    <p className={style.delete}>Удалить</p>
+                                    <p onClick={() => handleDelete(item._id)} className={style.delete}>Удалить</p>
                                 </div>
                             </div>
                         ))

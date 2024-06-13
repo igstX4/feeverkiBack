@@ -22,8 +22,8 @@ const HomeProductItem = ({ product }) => {
             </div>
             <div className={style.titleDiv}>
                 <h3>{product?.name}</h3>
-                <p className={style.price}>{product.price} ₽</p>
-                <p className={style.descr}>Стоимость в киосках: {product?.priceKiosk}₽</p>
+                <p className={style.price}>{product.price} руб.</p>
+                <p className={style.descr}>Стоимость в киосках: {product?.priceKiosk} руб.</p>
             </div>
             <div className={style.line} />
             <div className={style.productDescr}>
@@ -51,7 +51,7 @@ const HomeProductItem = ({ product }) => {
             <div className={style.addToBasket}>
                 <button className={style.ytBtn} onClick={(e) => {
                     e.stopPropagation()
-                    window.location.href(product?.video)
+                    window.location.replace(product?.video)
                 }}>СМОТРЕТЬ ВИДЕО</button>
                 {
                     isProductInBasket ? (

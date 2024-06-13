@@ -33,6 +33,14 @@ const Slider = () => {
         setActiveCategory(item)
         setEditModal(!editModal)
     }
+    const handleDelete = async (id) => {
+        try {
+            const { status } = await axios.delete(`/slide/${id}`);
+            getCategories()
+        } catch (error) {
+            console.error("Error fetching products:", error);
+        }
+    }
 
     return (
         <div className={style.categoryContainer}>
@@ -62,7 +70,7 @@ const Slider = () => {
                                     }} className={style.edit}>
                                         Редактировать
                                     </p>
-                                    <p className={style.delete}>Удалить</p>
+                                    <p onClick={() => handleDelete(item.id)} className={style.delete}>Удалить</p>
                                 </div>
                             </div>
                         ))

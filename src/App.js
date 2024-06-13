@@ -81,6 +81,8 @@ function App() {
                             </Route>
                             <Route path="/admin/product/:id"
                                    element={<ProtectedRoute><DetailedProduct/></ProtectedRoute>}/>
+                            <Route path="/admin/order/:id"
+                                   element={<ProtectedRoute><DetailedProduct order={true}/></ProtectedRoute>}/>
                         </Routes>
                     </BrowserRouter>
                 </Provider>

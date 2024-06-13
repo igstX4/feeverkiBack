@@ -18,7 +18,7 @@ const Orders = () => {
             console.error("Error fetching products:", error);
         }
     };
-
+    console.log(orders)
     useEffect(() => {
         getOrders();
     }, []);
@@ -73,11 +73,11 @@ const Orders = () => {
                                     <td>{item.phoneNumber}</td>
                                     <td>{item.address}</td>
                                     <td>{item.count}</td>
-                                    <td onClick={() => window.location.replace(`http://localhost:3000/admin/product/${item.product._id}`)}>
-                                        <img className={style.img} src={`${url}/uploads/${item.product.image}`} alt="/"/>
+                                    <td onClick={() => window.location.replace(`http://localhost:3000/admin/order/${item._id}`)}>
+                                        <img className={style.img} src={`${url}/uploads/${item.image}`} alt="/"/>
                                     </td>
-                                    <td onClick={() => window.location.replace(`http://localhost:3000/admin/product/${item.product._id}`)}>
-                                        {item.product.name}
+                                    <td onClick={() => window.location.replace(`http://localhost:3000/admin/order/${item._id}`)}>
+                                        {item.name}
                                     </td>
                                 </tr>
                             ))

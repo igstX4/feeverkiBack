@@ -11,7 +11,7 @@ const items = [
         key: '1',
         label: (
             <div className={s.itemLink}>
-                <NavLink to="https://www.antgroup.com">
+                <NavLink>
                     РИМСКИЕ СВЕЧИ
                 </NavLink>
             </div>
@@ -21,7 +21,7 @@ const items = [
         key: '2',
         label: (
             <div className={s.itemLink}>
-                <NavLink to="https://www.antgroup.com">
+                <NavLink>
                     РАКЕТЫ
                 </NavLink>
             </div>
@@ -31,7 +31,7 @@ const items = [
         key: '3',
         label: (
             <div className={s.itemLink}>
-                <NavLink to="https://www.antgroup.com">
+                <NavLink>
                     ХЛОПУШКИ
                 </NavLink>
             </div>
@@ -99,12 +99,10 @@ const HeaderFixed = ({setModal}) => {
                 }`}
             >
                 <div className={s.headerDiv}>
-                    <NavLink to={"/catalog/superFireworks"}>СУПЕР САЛЮТЫ</NavLink>
-                    <NavLink to={"/catalog/superFireworks"}>БОЛЬШИЕ САЛЮТЫ</NavLink>
-                    <NavLink to={"/catalog/superFireworks"}>МАЛЫЕ САЛЮТЫ</NavLink>
-                    <NavLink to={"/catalog/superFireworks"}>ФОНТАНЫ</NavLink>
-                    <NavLink to={"/catalog/superFireworks"}>БЕНГАЛЬСКИЕ ОГНИ</NavLink>
-                    <Dropdown
+                    <NavLink to={"/catalog/super"}>СУПЕР САЛЮТЫ</NavLink>
+                    <NavLink to={"/catalog/big"}>БОЛЬШИЕ САЛЮТЫ</NavLink>
+                    <NavLink to={"/catalog/small"}>МАЛЫЕ САЛЮТЫ</NavLink>
+                    {/* <Dropdown
                         menu={{
                             items,
                         }}
@@ -114,7 +112,7 @@ const HeaderFixed = ({setModal}) => {
                                 <NavLink to={"/catalog/superFireworks"}>ЕЩЁ...</NavLink>
                             </Space>
                         </a>
-                    </Dropdown>
+                    </Dropdown> */}
                     <h1 className={s.number}>8(812)987-78-51</h1>
                     <div className={s.cart} onClick={() => navigate('/basket')}>
                         <Cart/>

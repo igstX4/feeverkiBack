@@ -26,6 +26,9 @@ const BurgerAdmin = ({isOpened, setOpened}) => {
                     <Link onClick={setOpened} to="/admin/changePassword" className={s.item}>
                         <h3>Смена пароля</h3>
                     </Link>
+                    <Link onClick={setOpened} to="/admin/slider" className={s.item}>
+                        <h3>Слайдер</h3>
+                    </Link>
                     <Link onClick={setOpened} to="/admin/categories" className={s.item}>
                         <h3>Категории</h3>
                     </Link>
@@ -37,6 +40,9 @@ const BurgerAdmin = ({isOpened, setOpened}) => {
                     </Link>
                     <Link onClick={setOpened} to="/admin/moderators" className={s.item}>
                         <h3>Модераторы</h3>
+                    </Link>
+                    <Link onClick={setOpened} to="/admin/settings" className={s.item}>
+                        <h3>Настройки</h3>
                     </Link>
                     <Link onClick={setOpened} to="/admin/settings" className={s.item}>
                         <h3>Настройки</h3>

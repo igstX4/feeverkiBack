@@ -4,11 +4,20 @@ import { data } from '../../utils/slider_data';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import axios, { url } from "../../axios/axios";
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import SwiperCore from 'swiper';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import './Slider.scss';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { useNavigate } from 'react-router-dom';
 
 const SlidersHome = () => {
     const listRef = useRef();
     const [currentIndex, setCurrentIndex] = useState(0);
     const [sliders, setSliders] = useState()
+    const navigate = useNavigate()
 
     useEffect(() => {
         const getSliders = async () => {
@@ -21,40 +30,6 @@ const SlidersHome = () => {
         }
         getSliders()
     }, [])
-
-    useEffect(() => {
-        const listNode = listRef.current;
-        const imgNode = listNode.querySelectorAll("li > img")[currentIndex];
-
-        if (imgNode) {
-            imgNode.scrollIntoView({
-                behavior: "smooth",
-                block: "nearest",
-                inline: "center"
-            });
-        }
-
-    }, [currentIndex]);
-
-    const scrollToImage = (direction) => {
-        if (direction === 'prev') {
-            setCurrentIndex(curr => {
-                const isFirstSlide = currentIndex === 0;
-                return isFirstSlide ? 0 : curr - 1;
-            })
-        } else {
-            const isLastSlide = currentIndex === data.length - 1;
-            if (!isLastSlide) {
-                setCurrentIndex(curr => curr + 1);
-            } else {
-                setCurrentIndex(0)
-            }
-        }
-    }
-
-    const goToSlide = (slideIndex) => {
-        setCurrentIndex(slideIndex);
-    }
 
     return (
         <>
@@ -94,39 +69,31 @@ const SlidersHome = () => {
             </div>
             <div className={style.globalDivSliders}>
                 <div className={style.wrapper}>
-                    <div className="main-container">
-                        <div className="slider-container">
-                            <div className='leftArrow' onClick={() => scrollToImage('prev')}>
-                                <FontAwesomeIcon icon={faChevronLeft} className={style.svgRight} />
-                            </div>
-                            <div className='rightArrow' onClick={() => scrollToImage('next')}>
-                                <FontAwesomeIcon icon={faChevronRight} className={style.svgRight} />
-                            </div>
-                            <div className="container-images">
-                                <div className="list-container" ref={listRef}>
-                                    <ul className={"ul"}>
-                                        {sliders?.map((item, index) => (
-                                            <li key={index} className={"li"}>
-                                                <img src={`${url}/uploads/${item.img}`}
-                                                    alt={'/'} />
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="dots-wrapp">
-                            <div className="dots-container">
-                                {
-                                    sliders?.map((_, idx) => (
-                                        <div key={idx}
-                                            className={`dot-container-item ${idx === currentIndex ? "active" : ""}`}
-                                            onClick={() => goToSlide(idx)}>
-                                        </div>))
-                                }
-                            </div>
-                        </div>
-                    </div>
+
+                    <Swiper
+                        navigation={{
+                            prevEl: '.swiper-button-prev1',
+                            nextEl: '.swiper-button-next1'
+                        }}
+                        slidesPerView={'auto'}
+                        autoplay={{
+                            delay: 1500,
+                            disableOnInteraction: false,
+                        }}
+                        spaceBetween={0}
+                        pagination={{
+                            clickable: true,
+                        }}
+                modules={[Pagination, Navigation, Autoplay]}
+                        className="mySwiper"
+                    >
+                        {sliders?.map((item, i) => (
+                            <SwiperSlide>
+                                <img onClick={() => navigate(`/category/${item.category}`)} src={`${url}/uploads/${item.img}`} alt='/' />
+                            </SwiperSlide>
+                        ))}
+                
+                    </Swiper>
                 </div>
                 <div className={style.someFireworks}>
                     <div className={style.firstBlock}>

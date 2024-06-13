@@ -23,8 +23,7 @@ const DifferentFireworks = ({defaultFilter, category}) => {
     const [defaultFilter1, setDefaultFilter] = useState()
     const {type, name} = useParams()
     const navigate = useNavigate()
-    console.log(type)
-
+    const params = useParams()
 
     const getProducts = async () => {
         try {
@@ -56,7 +55,6 @@ const DifferentFireworks = ({defaultFilter, category}) => {
                 }
             } else {
                 const {data} = await axios.get(`/getAllProducts/${name}`)
-                console.log(data, name)
                 setProducts(data);
                 setFilteredArr(data)
             }
@@ -70,10 +68,8 @@ const DifferentFireworks = ({defaultFilter, category}) => {
 
     const handleFilters = (min, max) => {
         let copiedProducts = products.concat()
-        console.log(copiedProducts, 123)
         const filteredArr1 = copiedProducts.filter((item) => {
             const foundObj = item.options.find((item) => item.name === "Залпов")
-            // console.log(+foundObj.value.match(/\d+(\.\d+)?/)[0], +count)
             if (+foundObj.value.match(/\d+(\.\d+)?/)[0] >= +min) {
                 return true
             } else {
@@ -82,7 +78,6 @@ const DifferentFireworks = ({defaultFilter, category}) => {
         })
         const filteredArr2 = filteredArr1.filter((item) => {
             const foundObj = item.options.find((item) => item.name === "Залпов")
-            // console.log(+foundObj.value.match(/\d+(\.\d+)?/)[0], +count)
             if (+foundObj.value.match(/\d+(\.\d+)?/)[0] <= +max) {
                 return true
             } else {
@@ -98,7 +93,6 @@ const DifferentFireworks = ({defaultFilter, category}) => {
             if (count) {
                 const filteredArr1 = copiedProducts.filter((item) => {
                     const foundObj = item.options.find((item) => item.name === "Залпов")
-                    console.log(+foundObj.value.match(/\d+(\.\d+)?/)[0], +count)
                     if (+foundObj.value.match(/\d+(\.\d+)?/)[0] >= +count) {
                         return true
                     } else {
@@ -142,12 +136,13 @@ const DifferentFireworks = ({defaultFilter, category}) => {
         }
 
     }
+
     return (
         <Layout setFilter={handleFilters}>
             <>
                 <div className={s.wrapper}>
                     <div className={s.btnText}>
-                        <TextWithLines text={lineText}/>
+                        <TextWithLines text={lineText ? lineText : params.name}/>
                         <h2 className={s.textDesct}>{desk}</h2>
                     </div>
                     <div className={`${s.filter} ${textBlock ? s.active : ''}`}>
@@ -223,6 +218,10 @@ const DifferentFireworks = ({defaultFilter, category}) => {
                                     return <HomeProductItem product={item} key={i}/>
                                 })
                             ) : <p>loading..</p>
+
+                        }
+                        {
+                            filteredArr ? filteredArr.length === 0 ? <h3 style={{marginTop: '25px'}}>К сожалению ничего не найдено.</h3> : null : null
                         }
                     </div>
                 </div>
