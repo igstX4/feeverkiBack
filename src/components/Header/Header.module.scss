@@ -48,7 +48,10 @@
     display: flex;
     height: 100%;
     align-items: center;
-
+    .imgae2 {
+        width: 250px;
+        height: auto;
+    }
     img {
         cursor: pointer;
     }
@@ -150,27 +153,28 @@
     }
 }
 .catalogDiv {
-    z-index: 150;
     position: absolute;
     transition: .4s;
 
 }
 .visible {
-    z-index: 150;
     visibility: visible;
     transition: visibility 0.3s, opacity 0.4s linear;
     opacity: 1;
+    z-index: 3;
+
 }
 .hidden {
     visibility: hidden;
   opacity: 0;
+  z-index: 3;
   transition: visibility 0.3s, opacity 0.4s linear;
 }
 .miniModal {
-    z-index: 150;
     position: absolute;
     width: 593px;
-    height: 250px;
+    z-index: 3 !important;
+    min-height: 250px;
     background-color: white;
     box-shadow: -5px 6px 28px -1px rgba(0,0,0,0.27);
     border-radius: 6px;
@@ -262,6 +266,8 @@
         }
         .image2 {
             margin-left: 10px;
+            width: 220px;
+            height: auto;
         }
         .image {
             cursor: pointer;

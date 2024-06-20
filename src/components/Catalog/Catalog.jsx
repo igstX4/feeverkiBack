@@ -1,6 +1,15 @@
 import TextWithLines from "../TextWithLines/TextWithLines";
 import s from './Catalog.module.scss'
-
+import allsalytes from '../../assets/allsalytes.png'
+import zalp from '../../assets/36zalp.png'
+import salyt2 from '../../assets/salyt2.png'
+import miniSalyt from '../../assets/mini-Salyt.png'
+import image1 from '../../assets/image1.png'
+import image2 from '../../assets/image2.png'
+import image3 from '../../assets/image3.png'
+import image4 from '../../assets/image4.png'
+import image5 from '../../assets/image5.png'
+import image6 from '../../assets/image6.png'
 
 export const Catalog = () => {
 
@@ -12,24 +21,24 @@ export const Catalog = () => {
             <div className={s.topItems}>
                 <div className={s.item1488}>
                     <div className={s.item}>
-                        <img src={"https://i.ibb.co/nsjgzLB/allsalytes.png"} alt={"item"} />
+                        <img src={allsalytes} alt={"item"} />
                         <h2>ВCЕ САЛЮТЫ</h2>
                         <p>ОТ 7 ДО 364 ЗАЛПОВ</p>
                     </div>
                     <div className={s.item}>
-                        <img src={"https://i.ibb.co/HFYDkgP/salyt2.png"} alt={"item"} />
+                        <img src={salyt2} alt={"item"} />
                         <h2>СУПЕР САЛЮТЫ</h2>
                         <p>ОТ 10 000₽</p>
                     </div>
                 </div>
                 <div className={s.item1488}>
                     <div className={s.item}>
-                        <img src={"https://i.ibb.co/y6jsFLJ/36zalp.png"} alt={"item"} />
+                        <img src={zalp} alt={"item"} />
                         <h2>БОЛЬШИЕ САЛЮТЫ</h2>
                         <p>ОТ 3 000 ДО 10 000 ₽</p>
                     </div>
                     <div className={s.item}>
-                        <img src={"https://i.ibb.co/XFDggb5/mini-Salyt.png"} alt={"item"} />
+                        <img src={miniSalyt} alt={"item"} />
                         <h2>МАЛЫЕ САЛЮТЫ</h2>
                         <p>ДО 3 000 ₽</p>
                     </div>
@@ -38,32 +47,32 @@ export const Catalog = () => {
             <div className={s.littleItems}>
                 <div className={s.item1488}>
                     <div className={s.item}>
-                        <img src={"https://i.ibb.co/0KmKnZ4/image.png"} alt={"item2"} />
+                        <img src={image1} alt={"item2"} />
                         <h3>Фонтаны</h3>
                     </div>
                     <div className={s.item}>
-                        <img src={"https://i.ibb.co/RvF0fxD/image.png"} alt={"item2"} />
+                        <img src={image2} alt={"item2"} />
                         <h3>Рим. свечи</h3>
                     </div>
                 </div>
 
                 <div className={s.item1488}>
                     <div className={s.item}>
-                        <img src={"https://i.ibb.co/GsrshYz/image.png"} alt={"item2"} />
+                        <img src={image3} alt={"item2"} />
                         <h3>Бенгал. огни</h3>
                     </div>
                     <div className={s.item}>
-                        <img src={"https://i.ibb.co/KLy625H/image.png"} alt={"item2"} />
+                        <img src={image4} alt={"item2"} />
                         <h3>Хлопушки</h3>
                     </div>
                 </div>
                 <div className={s.item1488}>
                     <div className={s.item}>
-                        <img src={"https://i.ibb.co/ZYwP25X/image.png"} alt={"item2"} />
+                        <img src={image5} alt={"item2"} />
                         <h3>Петарды</h3>
                     </div>
                     <div className={s.item}>
-                        <img src={"https://i.ibb.co/R6fMsqL/image.png"} alt={"item2"} />
+                        <img src={image6} alt={"item2"} />
                         <h3>Ракеты</h3>
                     </div>
                 </div>

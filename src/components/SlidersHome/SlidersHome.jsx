@@ -12,6 +12,12 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { useNavigate } from 'react-router-dom';
+import salyt2 from '../../assets/salyt2.png'
+import zalp from '../../assets/36zalp.png'
+import mini from '../../assets/mini-Salyt.png'
+import image12 from '../../assets/image12.png'
+import skidka from '../../assets/skidka1.png'
+
 
 const SlidersHome = () => {
     const listRef = useRef();
@@ -36,14 +42,14 @@ const SlidersHome = () => {
             <div className={style.responsibleDivs}>
                 <div className={style.topItem}>
                     <div className={style.item}>
-                        <img src='https://i.ibb.co/HFYDkgP/salyt2.png' alt='item' />
+                        <img src={salyt2} alt='item' />
                         <div className={style.information}>
                             <h1>СУПЕР САЛЮТЫ</h1>
                             <p>ОТ 10 000 ₽</p>
                         </div>
                     </div>
                     <div className={style.item}>
-                        <img src='https://i.ibb.co/y6jsFLJ/36zalp.png' className={style.smaller} alt='item' />
+                        <img src={zalp} className={style.smaller} alt='item' />
                         <div className={style.information}>
                             <h1>БОЛЬШИЕ САЛЮТЫ</h1>
                             <p>ОТ 3 000 ДО 10 000 ₽</p>
@@ -52,14 +58,14 @@ const SlidersHome = () => {
                 </div>
                 <div className={style.topItem}>
                     <div className={style.item}>
-                        <img src='https://i.ibb.co/XFDggb5/mini-Salyt.png' className={style.smaller} alt='item' />
+                        <img src={mini} className={style.smaller} alt='item' />
                         <div className={style.information}>
                             <h1>МАЛЫЕ САЛЮТЫ</h1>
                             <p>ДО 3 000 ₽</p>
                         </div>
                     </div>
                     <div className={style.item}>
-                        <img src='https://i.ibb.co/3d3ggXp/image.png' style={{ height: "100px" }} alt='item' />
+                        <img src={image12} style={{ height: "100px" }} alt='item' />
                         <div className={style.information}>
                             <h1 style={{ fontSize: "12px" }}>МЕЛКАЯ ПИРОТЕХНИКА</h1>
                             <p>Фонтаны, петарды и т.д.</p>
@@ -98,18 +104,18 @@ const SlidersHome = () => {
                 <div className={style.someFireworks}>
                     <div className={style.firstBlock}>
                         <img className={style.img}
-                            src="https://i.1.creatium.io/disk2/a0/ee/3b/1ee1f394a66249f4871ccc2f8d08e36fa1/585x365q8/akciya_skidka_20_v_slayder.png"
+                            src={skidka}
                             alt="/" />
                         <img className={style.img}
-                            src="https://i.1.creatium.io/disk2/a0/ee/3b/1ee1f394a66249f4871ccc2f8d08e36fa1/585x365q8/akciya_skidka_20_v_slayder.png"
+                            src={skidka}
                             alt="/" />
                     </div>
                     <div className={style.secondBlock}>
                         <img className={style.img}
-                            src="https://i.1.creatium.io/disk2/a0/ee/3b/1ee1f394a66249f4871ccc2f8d08e36fa1/585x365q8/akciya_skidka_20_v_slayder.png"
+                            src={skidka}
                             alt="/" />
                         <img className={style.img}
-                            src="https://i.1.creatium.io/disk2/a0/ee/3b/1ee1f394a66249f4871ccc2f8d08e36fa1/585x365q8/akciya_skidka_20_v_slayder.png"
+                            src={skidka}
                             alt="/" />
                     </div>
                 </div>
