@@ -3,6 +3,15 @@ import TextWithLines from "../TextWithLines/TextWithLines";
 import {Play} from "./Svgs";
 import ReviewModal from "../Modals/ReviewModal/ReviewModal";
 import {useState} from "react";
+import video1 from '../../assets/video1.jpg'
+import video2 from '../../assets/video2.png'
+import yandex from '../../assets/Yandex.jpg'
+import fivestars from '../../assets/5-zvezd.png'
+import image10 from '../../assets/image10.png'
+import image11 from '../../assets/image10.png'
+import google from '../../assets/google.png'
+
+
 
 export const Reviews = () => {
     const [open, setOpen] = useState(false);
@@ -21,7 +30,7 @@ export const Reviews = () => {
                             className={s.video}
                             style={{
                                 backgroundImage:
-                                    "url(https://i.ibb.co/rvqcyVM/screenshot-20211207-225441-video-player.jpg)",
+                                    `url(${video1})`,
                             }}
                         >
                             <div onClick={() => setOpen(true)}>
@@ -30,7 +39,7 @@ export const Reviews = () => {
                         </div>
                         <div
                             style={{
-                                backgroundImage: "url(https://i.ibb.co/px7FjXh/screenshot-6.png)",
+                                backgroundImage: `url(${video2})`,
                             }}
                             className={s.video}
                         >
@@ -43,20 +52,20 @@ export const Reviews = () => {
                         <div className={s.block}>
                             <div className={s.top}>
                                 <div className={s.yandex}>
-                                    <img src={"https://i.ibb.co/SQp91H3/Yandex.jpg"}/>
+                                    <img src={yandex}/>
                                     <p>Рейтинг на Yandex</p>
                                 </div>
                                 <div className={s.mark}>
                                     <p className={s.markText}>4.7</p>
                                     <div>
-                                        <img src="https://i.ibb.co/T49t6Vw/5-zvezd.png"/>
+                                        <img src={fivestars}/>
                                         <p className={s.count1}>11 отзывов</p>
                                     </div>
                                 </div>
                             </div>
                             <hr/>
                             <div className={s.message}>
-                                <img src="https://i.ibb.co/mbRFZBq/screenshot-7.png" alt={'/'}/>
+                                <img src={image10} alt={'/'}/>
                                 <div>
                                     <h3>Катя Лобова</h3>
                                     <p>
@@ -70,20 +79,20 @@ export const Reviews = () => {
                         <div className={s.block}>
                             <div className={s.top}>
                                 <div className={s.yandex}>
-                                    <img src={"https://i.ibb.co/x5KdXLF/google.png"} alt={'/'}/>
+                                    <img src={google} alt={'/'}/>
                                     <p>Рейтинг на Yandex</p>
                                 </div>
                                 <div className={s.mark}>
                                     <p className={s.markText}>5.0</p>
                                     <div>
-                                        <img src="https://i.ibb.co/9hwV6Dd/5-zvezd-1.png"/>
+                                        <img src={fivestars}/>
                                         <p className={s.count1}>5 отзывов</p>
                                     </div>
                                 </div>
                             </div>
                             <hr/>
                             <div className={s.message}>
-                                <img src="https://i.ibb.co/cwKjgQ2/unnamed.png"/>
+                                <img src={image11}/>
                                 <div>
                                     <h3>Пётр Громов</h3>
                                     <p>

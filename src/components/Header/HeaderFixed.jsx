@@ -5,6 +5,8 @@ import s from "./Header.module.scss";
 import {Book, Search, Cart} from "./Svgs";
 import {NavLink, useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
+import image7 from '../../assets/image7.png'
+import image8 from '../../assets/image8.png'
 
 const items = [
     {
@@ -63,9 +65,9 @@ const HeaderFixedResponsible = ({setModal, open}) => {
     return (
         <div className={`${s.HeaderResponsibleFixedWrapper} ${open ? s.openedFixed : ""}`}>
             <div className={s.topItems}>
-                <img onClick={setModal} src={"https://i.ibb.co/Sr9DGwd/image.png"} alt="menu" className={s.menu}/>
+                <img onClick={setModal} src={image7} alt="menu" className={s.menu}/>
                 <h1 className={s.number}>8(812)987-78-51</h1>
-                <img src={'https://i.ibb.co/dt7qwSt/image.png'} className={s.image} alt={"logo"}
+                <img src={image8} className={s.image} alt={"logo"}
                  onClick={() => navigate('/')}/>
             </div>
             <div className={s.bottomItems}>
@@ -122,7 +124,7 @@ const HeaderFixed = ({setModal}) => {
                     </div>
                     <img
                         onClick={setModal}
-                        src={"https://i.ibb.co/Sr9DGwd/image.png"}
+                        src={image7}
                         alt="menu"
                         className={s.menu}
                     />

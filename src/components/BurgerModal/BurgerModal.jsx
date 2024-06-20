@@ -2,6 +2,8 @@ import s from './BurgerModal.module.scss'
 import {Cart, Cross} from "../Header/Svgs";
 import React from "react";
 import {NavLink, useNavigate} from "react-router-dom";
+import whatsapp from '../../assets/Whatsapp.png'
+
 
 export const BurgerModal = ({opened, setOpened}) => {
     const navigate = useNavigate()
@@ -33,7 +35,7 @@ export const BurgerModal = ({opened, setOpened}) => {
                     </div>
                     <div className={s.line}/>
                     <h1 className={s.number}>8(812)987-78-51</h1>
-                    <button className={s.whatsup}><img src={"https://i.ibb.co/N3H67pH/whatsapp.png"} alt={"XD"}/>
+                    <button className={s.whatsup}><img src={whatsapp} alt={"XD"}/>
                     </button>
                     <button className={s.catalog}>Запросить звонок</button>
                 </div>
