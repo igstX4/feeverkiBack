@@ -1,5 +1,5 @@
 import axios from "axios";
-const url = 'https://fireworks-server-pmkqkxv6x-igstx4s-projects.vercel.app/internal'
+const url = 'https://kumisback11.vercel.app/internal'
 
 const instance = axios.create({
     baseURL: url,
