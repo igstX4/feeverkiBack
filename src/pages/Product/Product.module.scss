@@ -294,4 +294,16 @@
       width: 335px !important;
     }
   }
+  .descr {
+    width: 100% !important;
+    justify-content: space-between;
+  }
+}
+.svgicon {
+  height: 20px;
+  margin-right: 10px;
+  width: 20px;
+  path {
+      fill: white
+  }
 }

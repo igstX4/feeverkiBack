@@ -131,7 +131,7 @@
   .whatsup {
     outline: none;
     border: none;
-    background-color: rgb(37, 211, 102);
+    background-color: #7E57C2;
     border-radius: 10px;
     width: 80%;
     padding: 8px 0px;
@@ -139,15 +139,26 @@
     color: rgb(255, 255, 255) !important;
     box-shadow: 0px 5px 15px 0px rgba(37, 211, 102, 0.4);
     transition: .2s;
+    display: flex;
+    align-items: center;
     cursor: pointer;
+    justify-content: center;
     margin-bottom: 10px;
 
     img {
       margin-top: 2px;
     }
+    svg {
+      margin-right: 5px;
+      width: 25px;
+      height: auto;
+      path {
+        fill: white;
+      }
+    }
 
     &:hover {
-      background-color: rgb(54, 220, 116);
+      background-color: #6b4aa3;
     }
   }
 

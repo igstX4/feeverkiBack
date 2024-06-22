@@ -1,8 +1,5 @@
 import style from '../Categories/Categories.module.scss'
 import { useEffect, useState } from "react";
-import { useDebounce } from "../../../hooks/useDebounce";
-import EditCategoryModal from "../Modals/EditCategoryModal/EditCategoryModal";
-import CreateCategoryModal from '../Modals/CreateCategoryModal/CreateCategoryModal';
 import axios, { url } from "../../../axios/axios";
 import EditSliderModal from "../Modals/EditSlider/EditSlider";
 import CreateSliderItem from "../Modals/CreateSliderItem/CreateSliderItem";
@@ -11,7 +8,6 @@ import CreateSliderItem from "../Modals/CreateSliderItem/CreateSliderItem";
 const Slider = () => {
     const [value, setValue] = useState("")
     const [categories, setCategories] = useState()
-    const debouncedValue = useDebounce(value, 400)
     const [editModal, setEditModal] = useState(false)
     const [activeCategory, setActiveCategory] = useState()
     const [createModal, setCreateModal] = useState(false)
