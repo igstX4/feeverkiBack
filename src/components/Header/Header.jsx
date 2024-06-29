@@ -18,12 +18,12 @@ const HeaderResponsive = ({ setModal }) => {
             <div className={s.responsiveHeader}>
                 <img onClick={setModal} src={image7} alt="menu" className={s.menu} />
                 <div>
-                    <button onClick={() => setOpened((op) => !op)} className={s.search}><Search /></button>
+                    {/* <button onClick={() => setOpened((op) => !op)} className={s.search}><Search /></button> */}
                     <div className={`${s.searchModal} ${opened ? s.opened : ""}`}>
-                        <div className={s.inputDiv}>
+                        {/* <div className={s.inputDiv}>
                             <input placeholder={"Поиск салютов"} />
                             <button><Search /></button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
                 <svg
@@ -45,7 +45,7 @@ const HeaderResponsive = ({ setModal }) => {
                         fill="black"
                     />
                 </svg>
-                <img src={image8} className={s.image} alt={"logo"} onClick={() => navigate('/')} />
+                <img src={image8} className={s.image} alt={"logo"} onClick={() => navigate('/basket')} />
 
             </div>
         </div>
@@ -150,7 +150,7 @@ const Header = ({ setModal, setFilter }) => {
                         <input placeholder={"Поиск салютов"} />
                         <button><Search /></button>
                     </div> */}
-                    <h1 className={s.number}>8(812)987-78-51</h1>
+                    <h1 className={s.number}>+375293570821</h1>
                     <div className={s.cart} onClick={() => navigate("/basket")}>
                         <Cart />
                         <p>Корзина ({state.length})</p>

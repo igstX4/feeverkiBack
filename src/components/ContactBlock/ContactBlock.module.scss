@@ -1,0 +1,134 @@
+.ContactBlock {
+    margin-top: 30px;
+    width: 985px;
+    height: 312px;
+    background-color: #21232A;
+    border-radius: 38px;
+    position: relative;
+    
+    .logo {
+        position: relative;
+        left: 20px;
+        top: 15px;
+    }
+
+    .content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h1 {
+            color: white;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 0;
+        }
+
+        p {
+            margin-top: 2px;
+            font-size: 15px;
+            font-weight: 400;
+            color: white;
+        }
+
+        h2 {
+            color: white;
+            font-size: 32px;
+            font-weight: 600;
+            margin-top: 40px;
+        }
+
+        .btns {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            .whatsup {
+                width: 240px;
+                outline: none;
+                border: none;
+                background-color: #7E57C2;
+                border-radius: 10px;
+                padding: 8px 0px;
+                font-size: 14px;
+                color: rgb(255, 255, 255) !important;
+                transition: .2s;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                justify-content: center;
+                margin-bottom: 10px;
+
+                img {
+                    margin-top: 2px;
+                }
+
+                svg {
+                    margin-right: 5px;
+                    width: 25px;
+                    height: auto;
+
+                    path {
+                        fill: white;
+                    }
+                }
+
+                &:hover {
+                    background-color: #6b4aa3;
+                }
+            }
+
+            .catalog {
+                margin-left: 20px;
+                width: 240px;
+                margin-bottom: 10px;
+                justify-content: center;
+                height: 40px;
+                background: linear-gradient(168deg, rgb(255, 141, 0), rgb(255, 49, 92));
+                color: rgb(255, 255, 255);
+                font-size: 15px;
+                padding: 10px 35px;
+                display: flex;
+                position: relative;
+                align-items: center;
+                border: none;
+                border-radius: 10px 10px 10px 10px;
+                outline: none;
+                transition: 150ms transform;
+                box-shadow: 0 5px 15px 0px rgba(179, 99, 0, 0.2);
+                cursor: pointer;
+
+                &:hover {
+                    background: linear-gradient(168deg, rgb(230, 127, 0), rgb(255, 19, 68));
+                }
+            }
+        }
+    }
+    @media (max-width: 1220px) {
+        width: 330px;
+        h1 {
+            margin-top: 25px;
+            font-size: 27px !important;
+        }
+        .logo {
+            top: auto !important;
+            position: absolute !important;
+            bottom: 15px !important;
+        }
+        h2 {
+            margin-top: 30px !important;
+            font-size: 21px !important;
+        }
+        .btns {
+            margin-top: 20px !important;
+            flex-direction: column;
+            button {
+                width: 190px;
+            }
+            .catalog {
+                margin-left: 0 !important;
+            }
+        }
+        
+    }
+}

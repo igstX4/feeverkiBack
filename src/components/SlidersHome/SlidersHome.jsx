@@ -17,6 +17,7 @@ import zalp from '../../assets/36zalp.png'
 import mini from '../../assets/mini-Salyt.png'
 import image12 from '../../assets/image12.png'
 import skidka from '../../assets/skidka1.png'
+import firstImg from '../../assets/firstImage.jpg'
 
 
 const SlidersHome = () => {
@@ -39,7 +40,7 @@ const SlidersHome = () => {
 
     return (
         <>
-            <div className={style.responsibleDivs}>
+            {/* <div className={style.responsibleDivs}>
                 <div className={style.topItem}>
                     <div className={style.item}>
                         <img src={salyt2} alt='item' />
@@ -72,52 +73,14 @@ const SlidersHome = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
             <div className={style.globalDivSliders}>
                 <div className={style.wrapper}>
 
-                    <Swiper
-                        navigation={{
-                            prevEl: '.swiper-button-prev1',
-                            nextEl: '.swiper-button-next1'
-                        }}
-                        slidesPerView={'auto'}
-                        autoplay={{
-                            delay: 1500,
-                            disableOnInteraction: false,
-                        }}
-                        spaceBetween={0}
-                        pagination={{
-                            clickable: true,
-                        }}
-                modules={[Pagination, Navigation, Autoplay]}
-                        className="mySwiper"
-                    >
-                        {sliders?.map((item, i) => (
-                            <SwiperSlide>
-                                <img onClick={() => navigate(`/category/${item.category}`)} src={`${url}/uploads/${item.img}`} alt='/' />
-                            </SwiperSlide>
-                        ))}
-                
-                    </Swiper>
+
                 </div>
                 <div className={style.someFireworks}>
-                    <div className={style.firstBlock}>
-                        <img className={style.img}
-                            src={skidka}
-                            alt="/" />
-                        <img className={style.img}
-                            src={skidka}
-                            alt="/" />
-                    </div>
-                    <div className={style.secondBlock}>
-                        <img className={style.img}
-                            src={skidka}
-                            alt="/" />
-                        <img className={style.img}
-                            src={skidka}
-                            alt="/" />
-                    </div>
+                    <button>Каталог</button>
                 </div>
             </div>
         </>

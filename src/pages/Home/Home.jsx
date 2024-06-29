@@ -8,6 +8,8 @@ import DeliveryHome from '../../components/DeliveryHome/DeliveryHome'
 import { Discounts } from '../../components/Discounts/Discounts'
 import { Reviews } from '../../components/Reviews/Reviews'
 import {Catalog} from "../../components/Catalog/Catalog";
+import { ContactBlock } from '../../components/ContactBlock/ContactBlock'
+import { Security } from '../../components/Security/Security'
 
 const Home = () => {
 
@@ -16,12 +18,15 @@ const Home = () => {
         <Layout>
             <div className={style.items}>
                 <SlidersHome />
-                <SomeBtns />
-                <HomeProducts />
-                <DeliveryHome />
-                <Discounts />
-                <Reviews />
                 <Catalog />
+                <SomeBtns />
+                <ContactBlock />
+                <Discounts />
+                <HomeProducts />
+                {/* <DeliveryHome /> */}
+                <Security />
+                {/* <Reviews /> */}
+                
             </div>
         </Layout>
     )

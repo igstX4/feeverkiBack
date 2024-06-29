@@ -114,7 +114,7 @@ const HeaderFixed = ({setModal}) => {
                             </Space>
                         </a>
                     </Dropdown> */}
-                    <h1 className={s.number}>8(812)987-78-51</h1>
+                    <h1 className={s.number}>+375293570821</h1>
                     <div className={s.cart} onClick={() => navigate('/basket')}>
                         <Cart/>
                         <p>Корзина ({state.length})</p>

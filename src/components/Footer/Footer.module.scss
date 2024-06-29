@@ -260,3 +260,22 @@
     display: none;
   }
 }
+.iframe {
+  width: 580px;
+  height: 220px;
+  margin-right: 30px;
+}
+.map {
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 1220px) {
+  .map {
+    flex-direction: column;
+  }
+  .iframe {
+    margin-top: 15px;
+    width: 350px !important;
+    height: 220px !important;
+  }
+}

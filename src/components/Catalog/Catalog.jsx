@@ -10,9 +10,10 @@ import image3 from '../../assets/image3.png'
 import image4 from '../../assets/image4.png'
 import image5 from '../../assets/image5.png'
 import image6 from '../../assets/image6.png'
+import { useNavigate } from "react-router-dom";
 
 export const Catalog = () => {
-
+    const navigate = useNavigate()
     return (
         <div className={s.catalog}>
             <div className={s.catalogText}>
@@ -20,31 +21,31 @@ export const Catalog = () => {
             </div>
             <div className={s.topItems}>
                 <div className={s.item1488}>
-                    <div className={s.item}>
+                    <div onClick={() => navigate('/catalog/all')} className={s.item}>
                         <img src={allsalytes} alt={"item"} />
                         <h2>ВCЕ САЛЮТЫ</h2>
                         <p>ОТ 7 ДО 364 ЗАЛПОВ</p>
                     </div>
-                    <div className={s.item}>
+                    <div onClick={() => navigate('/catalog/super')} className={s.item}>
                         <img src={salyt2} alt={"item"} />
                         <h2>СУПЕР САЛЮТЫ</h2>
                         <p>ОТ 10 000₽</p>
                     </div>
                 </div>
-                <div className={s.item1488}>
+                <div onClick={() => navigate('/catalog/big')} className={s.item1488}>
                     <div className={s.item}>
                         <img src={zalp} alt={"item"} />
                         <h2>БОЛЬШИЕ САЛЮТЫ</h2>
                         <p>ОТ 3 000 ДО 10 000 ₽</p>
                     </div>
-                    <div className={s.item}>
+                    <div onClick={() => navigate('/catalog/small')} className={s.item}>
                         <img src={miniSalyt} alt={"item"} />
                         <h2>МАЛЫЕ САЛЮТЫ</h2>
                         <p>ДО 3 000 ₽</p>
                     </div>
                 </div>
             </div>
-            <div className={s.littleItems}>
+            {/* <div className={s.littleItems}>
                 <div className={s.item1488}>
                     <div className={s.item}>
                         <img src={image1} alt={"item2"} />
@@ -76,7 +77,7 @@ export const Catalog = () => {
                         <h3>Ракеты</h3>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

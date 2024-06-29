@@ -20,7 +20,7 @@ html {
 }
 body {
   background-color: #FAFAFA;
-   overflow-x: hidden;
+   overflow-x: hidden !important;
 }
 .ant-select-selector:focus,
 .ant-select-selector:active,
