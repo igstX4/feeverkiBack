@@ -14,31 +14,34 @@ const Footer = () => {
 
     return (
         <>
+
             <div className={s.hr} />
             <div className={s.container}>
+               
                 <div className={s.map}>
-                <iframe
-                    className={s.iframe}
-                    title='map1'
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1186.2892450038114!2d28.143984356842086!3d53.51172468805416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46d9f5086e7ffbbb%3A0x7bbc7eb120ba0ae0!2zNSwg0KHQvtCy0LXRgtGB0LrQsNGPINGD0LsuIDcsINCc0LDRgNGM0LjQvdCwINCT0L7RgNC60LAsINCc0LjQvdGB0LrQsNGPINC-0LHQu9Cw0YHRgtGMLCDQkdC10LvQsNGA0YPRgdGM!5e0!3m2!1sru!2sua!4v1719655818329!5m2!1sru!2sua"
-                    width={600}
-                    height={450}
-                    style={{ border: 0 }}
-                    allowFullScreen=""
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                />
-                <iframe
-                    className={s.iframe}
-                    title='map2'
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2373.008084941616!2d28.161600076993462!3d53.5040509723355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46d9f5b044b52ff3%3A0x150021ab40e356a8!2z0YPQuy4g0J3QvtCy0LDRjyDQl9Cw0YDRjyAzNCwg0JzQsNGA0YzQuNC90LAg0JPQvtGA0LrQsCwg0JzQuNC90YHQutCw0Y8g0L7QsdC70LDRgdGC0YwgMjIyODExLCDQkdC10LvQsNGA0YPRgdGM!5e0!3m2!1sru!2sua!4v1719655983598!5m2!1sru!2sua"
-                    width={600}
-                    height={450}
-                    style={{ border: 0 }}
-                    allowFullScreen=""
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                />
+                    <iframe
+                        className={s.iframe}
+                        title='map1'
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d306.06478131609094!2d28.145101191838283!3d53.511769252294656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46d9f5086e805af9%3A0x8faf5fab241ff523!2z0KHQvtCy0LXRgtGB0LrQsNGPINGD0LsuIDUsINCc0LDRgNGM0LjQvdCwINCT0L7RgNC60LAsINCc0LjQvdGB0LrQsNGPINC-0LHQu9Cw0YHRgtGMLCDQkdC10LvQsNGA0YPRgdGM!5e0!3m2!1sru!2sua!4v1719910810261!5m2!1sru!2sua"
+                        width={600}
+                        height={450}
+                        style={{ border: 0 }}
+                        allowFullScreen=""
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                    />
+
+                    <iframe
+                        className={s.iframe}
+                        title='map2'
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2373.008084941616!2d28.161600076993462!3d53.5040509723355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46d9f5b044b52ff3%3A0x150021ab40e356a8!2z0YPQuy4g0J3QvtCy0LDRjyDQl9Cw0YDRjyAzNCwg0JzQsNGA0YzQuNC90LAg0JPQvtGA0LrQsCwg0JzQuNC90YHQutCw0Y8g0L7QsdC70LDRgdGC0YwgMjIyODExLCDQkdC10LvQsNGA0YPRgdGM!5e0!3m2!1sru!2sua!4v1719655983598!5m2!1sru!2sua"
+                        width={600}
+                        height={450}
+                        style={{ border: 0 }}
+                        allowFullScreen=""
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                    />
                 </div>
 
                 {/* <div className={s.contactsDiv}>
