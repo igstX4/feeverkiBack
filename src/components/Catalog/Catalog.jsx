@@ -45,39 +45,39 @@ export const Catalog = () => {
                     </div>
                 </div>
             </div>
-            {/* <div className={s.littleItems}>
+            <div className={s.littleItems}>
                 <div className={s.item1488}>
-                    <div className={s.item}>
+                    <div onClick={() => navigate('/category/Фонтаны')} className={s.item}>
                         <img src={image1} alt={"item2"} />
                         <h3>Фонтаны</h3>
                     </div>
-                    <div className={s.item}>
+                    <div onClick={() => navigate('/category/Римские свечи')} className={s.item}>
                         <img src={image2} alt={"item2"} />
                         <h3>Рим. свечи</h3>
                     </div>
                 </div>
 
                 <div className={s.item1488}>
-                    <div className={s.item}>
+                    <div onClick={() => navigate('/category/Бенгальские огни')} className={s.item}>
                         <img src={image3} alt={"item2"} />
                         <h3>Бенгал. огни</h3>
                     </div>
-                    <div className={s.item}>
+                    <div onClick={() => navigate('/category/Хлопушки')} className={s.item}>
                         <img src={image4} alt={"item2"} />
                         <h3>Хлопушки</h3>
                     </div>
                 </div>
                 <div className={s.item1488}>
-                    <div className={s.item}>
+                    <div onClick={() => navigate('/category/Петарды')} className={s.item}>
                         <img src={image5} alt={"item2"} />
                         <h3>Петарды</h3>
                     </div>
-                    <div className={s.item}>
+                    <div onClick={() => navigate('/category/Ракеты')} className={s.item}>
                         <img src={image6} alt={"item2"} />
                         <h3>Ракеты</h3>
                     </div>
                 </div>
-            </div> */}
+            </div>
         </div>
     )
 }
