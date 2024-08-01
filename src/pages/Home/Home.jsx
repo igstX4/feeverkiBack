@@ -21,7 +21,9 @@ const Home = () => {
                 <Catalog />
                 <SomeBtns />
                 <ContactBlock />
-                <Discounts />
+                <div className={style.discountWrapp}>
+                    <Discounts />
+                </div>
                 <HomeProducts />
                 {/* <DeliveryHome /> */}
                 <Security />

@@ -2,12 +2,13 @@ import React, {useEffect, useState} from 'react';
 import style from './DetailedProduct.module.scss'
 import {useNavigate, useParams} from "react-router-dom";
 import {notification} from "antd";
-import axios, { url } from "../../../../axios/axios";
+import axios, {redirect, url} from "../../../../axios/axios";
 import EditProductModal from "../../Modals/EditProductModal/EditProductModal";
 
 const DetailedProduct = ({order}) => {
     const [product, setProduct] = useState()
     const [editModal, setEditModal] = useState(false)
+    const [prices, setPrices] = useState(null)
     const {id} = useParams()
     const navigate = useNavigate()
     useEffect(() => {
@@ -17,6 +18,8 @@ const DetailedProduct = ({order}) => {
                 setProduct(data)
             } else {
                 const {data} = await axios.get(`/order/${id}`)
+                const newData = data.products.reduce((acc, curr) => acc += +curr.totalPrice, 0)
+                setPrices(newData)
                 setProduct(data)
             }
         }
@@ -34,7 +37,7 @@ const DetailedProduct = ({order}) => {
                 message: 'Успех.',
                 duration: 1.5
             });
-            window.location.replace('https://feeverki-back.vercel.app/admin')
+            window.location.replace(`${redirect}/admin`)
         } catch (e) {
             console.log(e)
         }
@@ -66,12 +69,11 @@ const DetailedProduct = ({order}) => {
                                     ) : <p>loading..</p>
                                 }
                                 </> : <>
-                                    <p className={style.title}>Имя: <span>{product?.name}</span></p>
-                                    <p className={style.title}>Почта: <span>{product?.email}</span></p>
+                                    <p className={style.title}>Имя: <span>{product?.products.map((item) => <p>{item.title}</p>)}</span></p>
                                     <p className={style.title}>Номер телефона: <span>{product?.phoneNumber} </span></p>
-                                    <p className={style.title}>Количество: <span>{product?.count} </span></p>
-                                    <p className={style.title}>Изображение: <a href={product?.video}>{product?.image}</a></p>
+                                    <p className={style.title}>Количество: <span>{product?.products.map((item) => <p>{item.quantity}</p>)} </span></p>
                                     <p className={style.title}>Адрес: <a href={product?.video}>{product?.address}</a></p>
+                                    <p className={style.title}>Общая сумма: {prices}</p>
                                 </>
                             }
                         </div>

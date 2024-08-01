@@ -96,7 +96,7 @@ const SuperFireworks = () => {
                                 <h3>Фильтр по параметрам:</h3>
                             </div>
                             <div className={s.second}>
-                                <p>+</p>
+                                <p style={{marginBottom: "10px"}}>+</p>
                             </div>
                         </div>
                         <div className={s.filterContent}>

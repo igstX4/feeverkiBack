@@ -70,7 +70,6 @@ function App() {
                                        element={<ProtectedRoute><ChangePassword user={user}/></ProtectedRoute>}/>
                                 <Route path="/admin/categories"
                                        element={<ProtectedRoute><Categories/></ProtectedRoute>}/>
-                                <Route path="/admin/slider" element={<ProtectedRoute><Slider/></ProtectedRoute>}/>
                                 <Route path="/admin/products" element={<ProtectedRoute><Products/></ProtectedRoute>}/>
                                 <Route path="/admin/orders" element={<ProtectedRoute><Orders/></ProtectedRoute>}/>
                                 <Route path='/admin/login' element={<Login user={user}/>}/>

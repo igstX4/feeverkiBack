@@ -37,9 +37,6 @@ export const Admin = ({user}) => {
                                 <Link to="/admin/changePassword" className={s.item}>
                                     <h3>Смена пароля</h3>
                                 </Link>
-                                <Link to="/admin/slider" className={s.item}>
-                                    <h3>Слайдер</h3>
-                                </Link>
                                 <Link to="/admin/categories" className={s.item}>
                                     <h3>Категории</h3>
                                 </Link>

@@ -80,7 +80,9 @@ const SlidersHome = () => {
 
                 </div>
                 <div className={style.someFireworks}>
-                    <button>Каталог</button>
+                    <button>
+                        <p>Каталог</p>
+                    </button>
                 </div>
             </div>
         </>

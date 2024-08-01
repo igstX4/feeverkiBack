@@ -21,24 +21,44 @@ export const Catalog = () => {
             </div>
             <div className={s.topItems}>
                 <div className={s.item1488}>
-                    <div onClick={() => navigate('/catalog/all')} className={s.item}>
+                    <div onClick={() =>{
+                        navigate('/catalog/all')
+                        window.scroll({
+                            top: 0
+                        })
+                    }} className={s.item}>
                         <img src={allsalytes} alt={"item"} />
                         <h2>ВCЕ САЛЮТЫ</h2>
                         <p>ОТ 7 ДО 364 ЗАЛПОВ</p>
                     </div>
-                    <div onClick={() => navigate('/catalog/super')} className={s.item}>
+                    <div onClick={() => {
+                        navigate('/catalog/super')
+                        window.scroll({
+                            top: 0
+                        })
+                    }} className={s.item}>
                         <img src={salyt2} alt={"item"} />
                         <h2>СУПЕР САЛЮТЫ</h2>
                         <p>ОТ 10 000₽</p>
                     </div>
                 </div>
-                <div onClick={() => navigate('/catalog/big')} className={s.item1488}>
+                <div onClick={() => {
+                    navigate('/catalog/big')
+                    window.scroll({
+                        top: 0
+                    })
+                }} className={s.item1488}>
                     <div className={s.item}>
                         <img src={zalp} alt={"item"} />
                         <h2>БОЛЬШИЕ САЛЮТЫ</h2>
                         <p>ОТ 3 000 ДО 10 000 ₽</p>
                     </div>
-                    <div onClick={() => navigate('/catalog/small')} className={s.item}>
+                    <div onClick={() => {
+                        navigate('/catalog/small')
+                        window.scroll({
+                            top: 0
+                        })
+                    }} className={s.item}>
                         <img src={miniSalyt} alt={"item"} />
                         <h2>МАЛЫЕ САЛЮТЫ</h2>
                         <p>ДО 3 000 ₽</p>
@@ -47,32 +67,62 @@ export const Catalog = () => {
             </div>
             <div className={s.littleItems}>
                 <div className={s.item1488}>
-                    <div onClick={() => navigate('/category/Фонтаны')} className={s.item}>
+                    <div onClick={() => {
+                        navigate('/category/Фонтаны')
+                        window.scroll({
+                            top: 0
+                        })
+                    }} className={s.item}>
                         <img src={image1} alt={"item2"} />
                         <h3>Фонтаны</h3>
                     </div>
-                    <div onClick={() => navigate('/category/Римские свечи')} className={s.item}>
+                    <div onClick={() => {
+                        navigate('/category/Римские свечи')
+                        window.scroll({
+                            top: 0
+                        })
+                    }} className={s.item}>
                         <img src={image2} alt={"item2"} />
                         <h3>Рим. свечи</h3>
                     </div>
                 </div>
 
                 <div className={s.item1488}>
-                    <div onClick={() => navigate('/category/Бенгальские огни')} className={s.item}>
+                    <div onClick={() => {
+                        navigate('/category/Бенгальские огни')
+                        window.scroll({
+                            top: 0
+                        })
+                    }} className={s.item}>
                         <img src={image3} alt={"item2"} />
                         <h3>Бенгал. огни</h3>
                     </div>
-                    <div onClick={() => navigate('/category/Хлопушки')} className={s.item}>
+                    <div onClick={() => {
+                        navigate('/category/Хлопушки')
+                        window.scroll({
+                            top: 0
+                        })
+                    }} className={s.item}>
                         <img src={image4} alt={"item2"} />
                         <h3>Хлопушки</h3>
                     </div>
                 </div>
                 <div className={s.item1488}>
-                    <div onClick={() => navigate('/category/Петарды')} className={s.item}>
+                    <div onClick={() => {
+                        navigate('/category/Петарды')
+                        window.scroll({
+                            top: 0
+                        })
+                    }} className={s.item}>
                         <img src={image5} alt={"item2"} />
                         <h3>Петарды</h3>
                     </div>
-                    <div onClick={() => navigate('/category/Ракеты')} className={s.item}>
+                    <div onClick={() => {
+                        navigate('/category/Ракеты')
+                        window.scroll({
+                            top: 0
+                        })
+                    }} className={s.item}>
                         <img src={image6} alt={"item2"} />
                         <h3>Ракеты</h3>
                     </div>

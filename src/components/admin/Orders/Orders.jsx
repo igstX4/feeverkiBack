@@ -8,11 +8,15 @@ const Orders = () => {
     const [orders, setOrders] = useState()
     const [value, setValue] = useState("")
     const [createModal, setCreateModal] = useState(false)
+    const [prices, setPrices] = useState(null)
     const debouncedValue = useDebounce(value, 400)
+    // const totalPrice = state.reduce((acc, curr) => acc += curr.totalPrice, 0)
 
     const getOrders = async () => {
         try {
             const {data} = await axios.get("/orders");
+            const newData = data.map((item) => item.products.reduce((acc, curr) => acc += +curr.totalPrice, 0))
+            setPrices(newData)
             setOrders(data);
         } catch (error) {
             console.error("Error fetching products:", error);
@@ -39,10 +43,10 @@ const Orders = () => {
                         <thead>
                         <tr className={style.tr}>
                             <th>
-                                Имя
+                                Название Товара
                             </th>
                             <th>
-                                Почта
+                                Имя
                             </th>
                             <th>
                                 Номер телефона
@@ -54,10 +58,7 @@ const Orders = () => {
                                 Количество
                             </th>
                             <th>
-                                Изображение
-                            </th>
-                            <th>
-                                Название Товара
+                                Общая стоимость
                             </th>
                         </tr>
                         </thead>
@@ -68,17 +69,16 @@ const Orders = () => {
                                     {/*<td className={style.tdImg}>*/}
                                     {/*    <img src={`http://localhost:4000/internal/uploads/${item.image}`} alt={'/'}/>*/}
                                     {/*</td>*/}
+                                    <td onClick={() => window.location.replace(`http://localhost:3000/admin/order/${item._id}`)}>
+                                        <div style={{}}>
+                                            {item.products.map((item) => <p>{item.title}</p>)}
+                                        </div>
+                                    </td>
                                     <td>{item.name}</td>
-                                    <td>{item.email}</td>
                                     <td>{item.phoneNumber}</td>
                                     <td>{item.address}</td>
-                                    <td>{item.count}</td>
-                                    <td onClick={() => window.location.replace(`http://localhost:3000/admin/order/${item._id}`)}>
-                                        <img className={style.img} src={`${url}/uploads/${item.image}`} alt="/"/>
-                                    </td>
-                                    <td onClick={() => window.location.replace(`http://localhost:3000/admin/order/${item._id}`)}>
-                                        {item.name}
-                                    </td>
+                                    <td>{item.products.map((item) => <p>{item.quantity}</p>)}</td>
+                                    <td>{prices[i]}</td>
                                 </tr>
                             ))
                         ) : (

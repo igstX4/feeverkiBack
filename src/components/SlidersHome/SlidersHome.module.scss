@@ -27,6 +27,7 @@
             display: flex;
         }
         button {
+            line-height: 50px;
             margin-bottom: 150px;
             width: 240px;
             background: linear-gradient(90deg, #8267C6 0%, #0773DF 100%);
@@ -37,6 +38,9 @@
             color: white;
             cursor: pointer;
             font-size: 32px;
+            display: flex;
+            justify-content: center;
+            align-center: center;
             font-weight: 600;
             &:hover {
                 background: linear-gradient(90deg, #715aac 0%, #0665c4 100%);

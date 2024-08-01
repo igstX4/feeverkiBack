@@ -2,7 +2,7 @@ import style from './Products.module.scss'
 import {useEffect, useState} from "react";
 import {useDebounce} from "../../../hooks/useDebounce";
 import AddProductModal from "../Modals/AddProductModal/AddProductModal";
-import axios, { url } from "../../../axios/axios";
+import axios, {redirect, url} from "../../../axios/axios";
 
 const Products = () => {
     const [products, setProducts] = useState()
@@ -63,7 +63,7 @@ const Products = () => {
                         <tbody>
                         {products ? (
                             productsSearch.map((item, i) => (
-                                <tr className={style.trItem} onClick={() => window.location.replace(`http://localhost:3000/admin/product/${item._id}`)}>
+                                <tr className={style.trItem} onClick={() => window.location.replace(`${redirect}/admin/product/${item._id}`)}>
                                     <td className={style.tdImg}>
                                         <img src={`${url}/uploads/${item.image}`} alt={'/'}/>
                                     </td>

@@ -36,7 +36,7 @@ const EditProductModal = ({product, modal, setModal}) => {
     const {name, category, video, priceKiosk, options1, options2, options3, options4, price, image, totalCount} = values;
     const [categories, setCategories] = useState()
     const [fileList, setFileList] = useState();
-
+    console.log(product)
     useEffect(() => {
         const getCategories = async () => {
             try {

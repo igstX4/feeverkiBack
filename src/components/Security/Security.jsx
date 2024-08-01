@@ -70,24 +70,16 @@ export const Security = () => {
                     </div>
                     <div className={s.semiBlock}>
                         <h2 className={s.title}>
-                            <span className={s.red}>Не направляйте фейерверк</span>
+                            <span className={s.red}>Не направляйте фейерверк </span>
                             в сторону людей!
                         </h2>
-                        <p>
-                            Выберите подходящее место
-                            для запуска. Это должна быть
-                            ровная площадка,
-                            расположенная на безопасном
-                            расстоянии от жилых домов.
-                        </p>
                     </div>
 
                 </div>
                 <div className={s.block}>
                     <div className={s.semiBlock}>
                         <h2 className={s.title}>
-                            <span>Не наклоняйтесь</span>
-                            над фейерверком!
+                            <span>Не наклоняйтесь</span> над фейерверком!
                         </h2>
                         <p>
                             Даже после окончания его

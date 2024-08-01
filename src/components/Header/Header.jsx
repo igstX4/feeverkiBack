@@ -83,7 +83,9 @@ const Header = ({ setModal, setFilter }) => {
         try {
             const { data } = await instance.get('/getAllCategories')
             if (data) {
-                setCategories(data)
+                const reversedCategories = data.reverse().slice(0, 5)
+                console.log(reversedCategories)
+                setCategories(reversedCategories)
             }
         } catch (err) {
             console.log(err)

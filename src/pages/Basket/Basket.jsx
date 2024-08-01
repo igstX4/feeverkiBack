@@ -2,25 +2,35 @@ import React, { useState } from 'react';
 import Layout from "../../Layouts/Layout";
 import style from './Basket.module.scss'
 import { useForm, Controller } from "react-hook-form";
-import { DatePicker } from 'antd';
+import {DatePicker, notification} from 'antd';
 import { useDispatch, useSelector } from "react-redux";
 import cat from '../../assets/cat.png'
-import { changeQuantity, deleteFromCart } from '../../store/basket/basketSlice';
+import basketSlice, { changeQuantity, deleteFromCart } from '../../store/basket/basketSlice';
 import { useNavigate } from 'react-router-dom';
-import { url } from '../../axios/axios';
+import axios, { url } from '../../axios/axios';
 
 const Basket = () => {
     const [open, setOpen] = useState(false)
-    const { control, register, handleSubmit, formState: { errors } } = useForm();
+    const { control, register, handleSubmit, formState: { errors }, reset } = useForm();
     const state = useSelector(state => state.basket)
     const dispatch = useDispatch()
     const totalPrice = state.reduce((acc, curr) => acc += curr.totalPrice, 0)
     const navigate = useNavigate()
 
     const onSubmit = (data) => {
+        console.log(state)
 
+        try {
+           const {data : dataGet} = axios.post('/order/create', {...data, products: state})
+
+            if (dataGet.name) {
+                notification.success({message: 'Заказ создан.', duration: 3})
+            }
+            reset()
+        } catch (e) {
+            console.log(e)
+        }
     };
-    
 
     return (
         <Layout>
@@ -131,8 +141,7 @@ const Basket = () => {
                                         {errors.deliveryTime &&
                                             <span className={style.error}>Выберите время доставки</span>}
                                     </div>
-                                    <button className={style.btn} type="submit">ОФОРМИТЬ ЗАКАЗ
-                                    </button>
+                                    <button className={style.btn} type="submit">ОФОРМИТЬ ЗАКАЗ</button>
                                 </form>
                             </div>
                         </div>
