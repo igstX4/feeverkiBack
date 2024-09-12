@@ -1,5 +1,5 @@
 import axios from "axios";
-const url = 'https://kumisback11.vercel.app/internal'
+const url = 'https://kumisback11.vercel.app/internal' //fs
 
 const instance = axios.create({
     baseURL: url,
