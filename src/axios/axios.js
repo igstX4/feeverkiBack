@@ -1,5 +1,5 @@
 import axios from "axios";
-export const url = 'http://feerverk.by/internal'
+export const url = 'https://feerverk.by/internal'
 // export const url = 'http://localhost:4000/internal';
 export const redirect = 'http://localhost:3000';
 
