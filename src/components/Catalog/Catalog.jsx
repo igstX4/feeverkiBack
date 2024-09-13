@@ -50,10 +50,11 @@ export const Catalog = () => {
                 }} className={s.item1488}>
                     <div className={s.item}>
                         <img src={zalp} alt={"item"} />
-                        <h2>БОЛЬШИЕ САЛЮТЫ</h2>
+                        <h2>СРЕДНИЕ САЛЮТЫ</h2>
                         <p>ОТ 3 000 ДО 10 000 ₽</p>
                     </div>
-                    <div onClick={() => {
+                    <div onClick={(e) => {
+                        e.stopPropagation();
                         navigate('/catalog/small')
                         window.scroll({
                             top: 0
