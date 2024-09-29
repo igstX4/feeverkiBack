@@ -19,7 +19,7 @@ const Product = () => {
     const [product, setProduct] = useState();
     const dispatch = useDispatch()
     const state = useSelector(state => state.basket)
-    const isProductInBasket = state.some(item => item._id === product._id)
+    const isProductInBasket = state.some(item => item._id === product?._id)
 
     useEffect(() => {
         const getProduct = async () => {
