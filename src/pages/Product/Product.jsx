@@ -28,7 +28,7 @@ const Product = () => {
         }
         getProduct()
     }, [params?.productName])
-    console.log(product)
+
     return (
         <Layout>
             <div className={style.container}>
@@ -46,34 +46,28 @@ const Product = () => {
                             </div>
                         </div>
                         <div className={style.descr}>
-                            <div className={style.item}>
-                                <img src={zalp} alt="/" />
-                                <div>
-                                    <p>Залпов</p>
-                                    <h3>55</h3>
+                            {product?.options.map((option) => (
+                                <div key={option._id} className={style.item}>
+                                    <img
+                                        src={
+                                            option.name === "Залпов"
+                                                ? zalp
+                                                : option.name === "Калибр"
+                                                    ? bobmbs
+                                                    : option.name === "Время"
+                                                        ? sekundomer
+                                                        : option.name === "Эффекты"
+                                                            ? effects
+                                                            : null
+                                        }
+                                        alt={option.name}
+                                    />
+                                    <div>
+                                        <p>{option.name}</p>
+                                        <h3>{option.value}</h3>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className={style.item}>
-                                <img src={bobmbs} alt="/" />
-                                <div>
-                                    <p>Калибр</p>
-                                    <h3>1 д</h3>
-                                </div>
-                            </div>
-                            <div className={style.item}>
-                                <img src={sekundomer} alt="/" />
-                                <div>
-                                    <p>Время</p>
-                                    <h3>60</h3>
-                                </div>
-                            </div>
-                            <div className={style.item}>
-                                <img src={effects} alt="/" />
-                                <div>
-                                    <p>Эффекты</p>
-                                    <h3>11</h3>
-                                </div>
-                            </div>
+                            ))}
                         </div>
                     </div>
                     <div className={style.rightSide}>
@@ -84,10 +78,10 @@ const Product = () => {
                                 </div>
                             </div>
                             <div className={style.content}>
-                                <p className={style.title}>Династия</p>
+                                <p className={style.title}>{product?.name}</p>
                                 <p className={style.nalichie}>В наличии</p>
-                                <p className={style.price}>29100 ₽</p>
-                                <p className={style.kiosk}>Стоимость в киосках: <s>34920₽</s></p>
+                                <p className={style.price}>{product?.price} бел. руб</p>
+                                <p className={style.kiosk}>Стоимость в киосках: <s>{product?.priceKiosk} бел. руб</s></p>
                             </div>
                             <div className={style.lowerBlock}>
                                 <div className={style.block}>

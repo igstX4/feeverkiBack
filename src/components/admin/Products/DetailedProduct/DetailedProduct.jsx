@@ -11,6 +11,7 @@ const DetailedProduct = ({order}) => {
     const [prices, setPrices] = useState(null)
     const {id} = useParams()
     const navigate = useNavigate()
+
     useEffect(() => {
         const getProduct = async () => {
             if (!order) {
@@ -25,7 +26,7 @@ const DetailedProduct = ({order}) => {
         }
         getProduct()
     }, []);
-    console.log(product)
+
     const deleteProduct = async () => {
         try {
             if (!order) {
