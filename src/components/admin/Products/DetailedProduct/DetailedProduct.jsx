@@ -6,7 +6,7 @@ import axios, {redirect, url} from "../../../../axios/axios";
 import EditProductModal from "../../Modals/EditProductModal/EditProductModal";
 
 const DetailedProduct = ({order}) => {
-            const [product, setProduct] = useState()
+    const [product, setProduct] = useState()
     const [editModal, setEditModal] = useState(false)
     const [prices, setPrices] = useState(null)
     const {id} = useParams()
@@ -25,7 +25,7 @@ const DetailedProduct = ({order}) => {
         }
         getProduct()
     }, []);
-    l
+    console.log(product)
     const deleteProduct = async () => {
         try {
             if (!order) {
