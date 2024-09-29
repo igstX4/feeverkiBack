@@ -28,7 +28,7 @@ const Product = () => {
         }
         getProduct()
     }, [params?.productName])
-
+    console.log(product)
     return (
         <Layout>
             <div className={style.container}>
