@@ -39,7 +39,7 @@ export const Catalog = () => {
                     }} className={s.item}>
                         <img src={salyt2} alt={"item"} />
                         <h2>СУПЕР САЛЮТЫ</h2>
-                        <p>ОТ 10 000₽</p>
+                        <p>ОТ 347 бел. руб</p>
                     </div>
                 </div>
                 <div onClick={() => {
@@ -51,7 +51,7 @@ export const Catalog = () => {
                     <div className={s.item}>
                         <img src={zalp} alt={"item"} />
                         <h2>СРЕДНИЕ САЛЮТЫ</h2>
-                        <p>ОТ 3 000 ДО 10 000 ₽</p>
+                        <p>ОТ 104 ДО 347 бел. руб</p>
                     </div>
                     <div onClick={(e) => {
                         e.stopPropagation();
@@ -62,7 +62,7 @@ export const Catalog = () => {
                     }} className={s.item}>
                         <img src={miniSalyt} alt={"item"} />
                         <h2>МАЛЫЕ САЛЮТЫ</h2>
-                        <p>ДО 3 000 ₽</p>
+                        <p>ДО 104 бел. руб</p>
                     </div>
                 </div>
             </div>

@@ -14,7 +14,7 @@ export const Admin = ({user}) => {
         dispatch(signOut())
         navigate('/admin/login')
     }
-    console.log(user)
+
     const [opened, setOpened] = useState(false)
     useEffect(() => {
         if (location.pathname === '/admin') {

@@ -16,8 +16,8 @@ const DifferentFireworks = ({defaultFilter, category}) => {
     const [caliber, setCaliber] = useState()
     const [duration, setDuration] = useState()
     const [min, setMin] = useState(0)
-    const [max, setMax] = useState(78300)
-    const [lineText, setLineText] = useState()
+    const [max, setMax] = useState(3000)
+    const [lineText, setLineText] = useState('')
     const [desk, setDesk] = useState()
     const [filteredArr, setFilteredArr] = useState()
     const [defaultFilter1, setDefaultFilter] = useState()
@@ -36,22 +36,22 @@ const DifferentFireworks = ({defaultFilter, category}) => {
                     setLineText('ВСЕ САЛЮТЫ')
                     setDesk('')
                 } else if (type === "small") {
-                    const filteredArr1 = data.filter((item) => item.price <= 3000)
+                    const filteredArr1 = data.filter((item) => item.price <= 104)
                     setFilteredArr(filteredArr1)
                     setLineText('МАЛЫЕ САЛЮТЫ')
-                    setDesk('Салюты до 3 000 ₽')
+                    setDesk('Салюты до 3 000 бел. руб')
     
                 } else if (type === "big") {
-                    const filteredArr1 = data.filter((item) => item.price >= 3000)
-                    const filteredArr2 = filteredArr1.filter((item) => item.price <= 10000)
+                    const filteredArr1 = data.filter((item) => item.price >= 104)
+                    const filteredArr2 = filteredArr1.filter((item) => item.price <= 347)
                     setFilteredArr(filteredArr2)
                     setLineText('БОЛЬШИЕ САЛЮТЫ')
                     setDesk('Салюты от 3 000 ₽ до 10 000 ₽')
                 } else if (type === "super") {
-                    const filteredArr1 = data.filter((item) => item.price >= 10000)
+                    const filteredArr1 = data.filter((item) => item.price >= 347)
                     setFilteredArr(filteredArr1)
                     setLineText('СУПЕР САЛЮТЫ')
-                    setDesk('Салюты от 10 000 ₽')
+                    setDesk('Салюты от 10 000 бел. руб')
                 }
             } else {
                 const {data} = await axios.get(`/getAllProducts/${name}`)
@@ -64,7 +64,7 @@ const DifferentFireworks = ({defaultFilter, category}) => {
     };
     useEffect(() => {
         getProducts();
-    }, [type]);
+    }, [type, params]);
 
     const handleFilters = (min, max) => {
         let copiedProducts = products.concat()
@@ -193,18 +193,18 @@ const DifferentFireworks = ({defaultFilter, category}) => {
                                     <div className={s.slider}>
                                         <div className={s.numbers}>
                                             <div className={s.number}>0</div>
-                                            <div className={s.number}>78300</div>
+                                            <div className={s.number}>3000</div>
                                         </div>
-                                        <Slider className={s.slider1} min={0} max={78300} onChange={setMin}
+                                        <Slider className={s.slider1} min={0} max={3000} onChange={setMin}
                                                 defaultValue={30}/>
                                     </div>
                                     <div className={s.slider}>
                                         <div className={s.numbers}>
                                             <div className={s.number}>0</div>
-                                            <div className={s.number}>78300</div>
+                                            <div className={s.number}>3000</div>
                                         </div>
-                                        <Slider className={s.slider1} min={0} onChange={setMax} max={78300}
-                                                defaultValue={78300}/>
+                                        <Slider className={s.slider1} min={0} onChange={setMax} max={3000}
+                                                defaultValue={3000}/>
                                     </div>
                                 </div>
                             </div>

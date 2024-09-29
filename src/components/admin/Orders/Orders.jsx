@@ -22,11 +22,10 @@ const Orders = () => {
             console.error("Error fetching products:", error);
         }
     };
-    console.log(orders)
     useEffect(() => {
         getOrders();
     }, []);
-    console.log(orders)
+
     return (
         <div className={style.categoryContainer}>
             {/*<AddProductModal update={getProducts} createModal={createModal} setCreateModal={setCreateModal}/>*/}
@@ -69,7 +68,7 @@ const Orders = () => {
                                     {/*<td className={style.tdImg}>*/}
                                     {/*    <img src={`http://localhost:4000/internal/uploads/${item.image}`} alt={'/'}/>*/}
                                     {/*</td>*/}
-                                    <td onClick={() => window.location.replace(`http://localhost:3000/admin/order/${item._id}`)}>
+                                    <td onClick={() => window.location.replace(`${url}/admin/order/${item._id}`)}>
                                         <div style={{}}>
                                             {item.products.map((item) => <p>{item.title}</p>)}
                                         </div>

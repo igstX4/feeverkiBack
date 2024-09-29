@@ -47,7 +47,7 @@ const HeaderResponsive = ({ setModal }) => {
                 </svg>
                 <svg
                 className={s.image}
-                onClick={() => navigate('/cart')}
+                onClick={() => navigate('/basket')}
                     xmlns="http://www.w3.org/2000/svg"
                     width={27}
                     height={27}
@@ -79,6 +79,7 @@ const Header = ({ setModal, setFilter }) => {
     const navigate = useNavigate()
     const state = useSelector(state => state.basket)
     const [categories, setCategories] = useState()
+
     const getCategories = async () => {
         try {
             const { data } = await instance.get('/getAllCategories')
@@ -94,7 +95,7 @@ const Header = ({ setModal, setFilter }) => {
     useEffect(() => {
         getCategories()
     }, [])
-    console.log(categories)
+
     const handleFilter = (min, max) => {
         if (setFilter) {
             setFilter(min, max)

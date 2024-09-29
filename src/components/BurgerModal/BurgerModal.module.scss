@@ -123,6 +123,17 @@
     box-shadow: 0 5px 15px 0px rgba(179, 99, 0, 0.2);
     cursor: pointer;
 
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      a {
+        display: flex;
+        color: white;
+        text-decoration: none;
+      }
+    }
+
     &:hover {
       background: linear-gradient(168deg, rgb(230, 127, 0), rgb(255, 19, 68));
     }
@@ -143,7 +154,16 @@
     cursor: pointer;
     justify-content: center;
     margin-bottom: 10px;
-
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      a {
+        display: flex;
+        color: white;
+        text-decoration: none;
+      }
+    }
     img {
       margin-top: 2px;
     }
