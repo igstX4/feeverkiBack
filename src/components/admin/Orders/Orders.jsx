@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import style from './Orders.module.scss'
 import AddProductModal from "../Modals/AddProductModal/AddProductModal";
 import {useDebounce} from "../../../hooks/useDebounce";
-import axios, { url } from "../../../axios/axios";
+import axios, { redirect } from "../../../axios/axios";
 
 const Orders = () => {
     const [orders, setOrders] = useState()
@@ -68,7 +68,7 @@ const Orders = () => {
                                     {/*<td className={style.tdImg}>*/}
                                     {/*    <img src={`http://localhost:4000/internal/uploads/${item.image}`} alt={'/'}/>*/}
                                     {/*</td>*/}
-                                    <td onClick={() => window.location.replace(`${url}/admin/order/${item._id}`)}>
+                                    <td onClick={() => window.location.replace(`${redirect}/admin/order/${item._id}`)}>
                                         <div style={{}}>
                                             {item.products.map((item) => <p>{item.title}</p>)}
                                         </div>
