@@ -21,7 +21,7 @@ export const Catalog = () => {
             </div>
             <div className={s.topItems}>
                 <div className={s.item1488}>
-                    <div onClick={() =>{
+                    <div onClick={() => {
                         navigate('/catalog/all')
                         window.scroll({
                             top: 0
@@ -39,7 +39,7 @@ export const Catalog = () => {
                     }} className={s.item}>
                         <img src={salyt2} alt={"item"} />
                         <h2>СУПЕР САЛЮТЫ</h2>
-                        <p>ОТ 347 бел. руб</p>
+                        <p>ОТ 347 BYN</p>
                     </div>
                 </div>
                 <div onClick={() => {
@@ -51,7 +51,7 @@ export const Catalog = () => {
                     <div className={s.item}>
                         <img src={zalp} alt={"item"} />
                         <h2>СРЕДНИЕ САЛЮТЫ</h2>
-                        <p>ОТ 104 ДО 347 бел. руб</p>
+                        <p>ОТ 104 ДО 347 BYN</p>
                     </div>
                     <div onClick={(e) => {
                         e.stopPropagation();
@@ -62,7 +62,7 @@ export const Catalog = () => {
                     }} className={s.item}>
                         <img src={miniSalyt} alt={"item"} />
                         <h2>МАЛЫЕ САЛЮТЫ</h2>
-                        <p>ДО 104 бел. руб</p>
+                        <p>ДО 104 BYN</p>
                     </div>
                 </div>
             </div>

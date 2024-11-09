@@ -54,7 +54,7 @@ const Basket = () => {
                                             <button className={style.btnItem} onClick={() => dispatch(changeQuantity({ _id: item._id, func: "+" }))}>+</button>
                                         </div>
                                         <div className={style.price}>
-                                            <p>{item.price * item.quantity} р.</p>
+                                            <p>{item.price * item.quantity} BYN</p>
                                         </div>
                                     </div>
                                     <div className={style.btn} onClick={() => dispatch(deleteFromCart({ _id: item._id }))}>
@@ -95,7 +95,7 @@ const Basket = () => {
                                         <label>Номер телефона</label>
                                         <input type="text" {...register('phoneNumber', {
                                             required: true,
-                                            pattern: /^[0-9]{10}$/
+                                            // pattern: /^[0-9]{10}$/
                                         })} />
                                         {errors.phoneNumber && errors.phoneNumber.type === "required" && (
                                             <span className={style.error}>Поле обязательно для заполнения</span>
@@ -155,7 +155,7 @@ const Basket = () => {
                                     </div>
                                     <div className={style.greyBg}>
                                         <div className={style.total}>
-                                            <p>Итого: {totalPrice} р.</p>
+                                            <p>Итого: {totalPrice} BYN</p>
                                         </div>
                                     </div>
                                     <div className={style.orderText}>

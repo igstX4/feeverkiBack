@@ -22,8 +22,8 @@ const HomeProductItem = ({ product }) => {
             </div>
             <div className={style.titleDiv}>
                 <h3>{product?.name}</h3>
-                <p className={style.price}>{product.price} руб.</p>
-                <p className={style.descr}>Стоимость в киосках: {product?.priceKiosk} руб.</p>
+                <p className={style.price}>{product.price} BYN</p>
+                <p className={style.descr}>Стоимость в киосках: {product?.priceKiosk} BYN</p>
             </div>
             <div className={style.line} />
             <div className={style.productDescr}>
