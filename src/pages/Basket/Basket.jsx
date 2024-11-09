@@ -17,11 +17,11 @@ const Basket = () => {
     const totalPrice = state.reduce((acc, curr) => acc += curr.totalPrice, 0)
     const navigate = useNavigate()
 
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
         console.log(state)
 
         try {
-           const {data : dataGet} = axios.post('/order/create', {...data, products: state})
+           const {data : dataGet} = await axios.post('/order/create', {...data, products: state})
 
             if (dataGet.name) {
                 notification.success({message: 'Заказ создан.', duration: 3})
