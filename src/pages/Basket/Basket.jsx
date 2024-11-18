@@ -5,7 +5,7 @@ import { useForm, Controller } from "react-hook-form";
 import {DatePicker, notification} from 'antd';
 import { useDispatch, useSelector } from "react-redux";
 import cat from '../../assets/cat.png'
-import basketSlice, { changeQuantity, deleteFromCart } from '../../store/basket/basketSlice';
+import basketSlice, { changeQuantity, deleteFromCart, clearCart } from '../../store/basket/basketSlice';
 import { useNavigate } from 'react-router-dom';
 import axios, { url } from '../../axios/axios';
 
@@ -18,8 +18,6 @@ const Basket = () => {
     const navigate = useNavigate()
 
     const onSubmit = async (data) => {
-        console.log(state)
-
         try {
            const {data : dataGet} = await axios.post('/order/create', {...data, products: state})
 
@@ -27,6 +25,7 @@ const Basket = () => {
                 notification.success({message: 'Заказ создан.', duration: 3})
             }
             reset()
+            dispatch(clearCart())
         } catch (e) {
             console.log(e)
         }

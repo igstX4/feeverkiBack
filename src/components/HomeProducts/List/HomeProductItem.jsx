@@ -12,6 +12,7 @@ import { url } from '../../../axios/axios'
 const HomeProductItem = ({ product }) => {
     const dispatch = useDispatch()
     const state = useSelector(state => state.basket)
+    console.log(state)
     const isProductInBasket = state.some(item => item._id === product._id)
     const navigate = useNavigate()
 

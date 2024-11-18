@@ -39,19 +39,19 @@ const DifferentFireworks = ({defaultFilter, category}) => {
                     const filteredArr1 = data.filter((item) => item.price <= 104)
                     setFilteredArr(filteredArr1)
                     setLineText('МАЛЫЕ САЛЮТЫ')
-                    setDesk('Салюты до 3 000 бел. руб')
+                    setDesk('Салюты до 104 byn')
     
                 } else if (type === "big") {
                     const filteredArr1 = data.filter((item) => item.price >= 104)
                     const filteredArr2 = filteredArr1.filter((item) => item.price <= 347)
                     setFilteredArr(filteredArr2)
                     setLineText('БОЛЬШИЕ САЛЮТЫ')
-                    setDesk('Салюты от 3 000 ₽ до 10 000 ₽')
+                    setDesk('Салюты от 347 byn')
                 } else if (type === "super") {
                     const filteredArr1 = data.filter((item) => item.price >= 347)
                     setFilteredArr(filteredArr1)
                     setLineText('СУПЕР САЛЮТЫ')
-                    setDesk('Салюты от 10 000 бел. руб')
+                    setDesk('Салюты от 347 byn')
                 }
             } else {
                 const {data} = await axios.get(`/getAllProducts/${name}`)

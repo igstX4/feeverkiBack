@@ -34,9 +34,12 @@ const basketSlice = createSlice({
         deleteFromCart(state, action) {
             const { _id } = action.payload;
             return state.filter(item => item._id !== _id);
+        },
+        clearCart(state, action) {
+            return state = []
         }
     },
 })
 
-export const {addToCart, changeQuantity, deleteFromCart} = basketSlice.actions
+export const {addToCart, changeQuantity, deleteFromCart, clearCart} = basketSlice.actions
 export default basketSlice.reducer
