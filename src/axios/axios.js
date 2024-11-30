@@ -1,7 +1,7 @@
 import axios from "axios";
-// export const url = 'https://feerverk.by/internal'
-export const url = 'http://localhost:4000/internal';
-export const redirect = 'http://localhost:3000'; // https://feerverk.by
+// export const url = ''
+export const url = 'https://feerverk.by/internal';
+export const redirect = 'https://feerverk.by'; // 
 
 const instance = axios.create({
     baseURL: url,
