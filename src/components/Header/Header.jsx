@@ -138,33 +138,15 @@ const Header = ({ setModal, setFilter }) => {
                                         <p onClick={() => navigate('/catalog/small')}>ДО 103 BYN</p>
                                         <p onClick={() => navigate('/catalog/all')}>ВСЕ САЛЮТЫ</p>
                                     </div>
-                                    <hr />
-                                </div>
-                                <div className={s.vertical}>
-                                    <div className={s.infoDiv}>
-                                        <h3>По кол-ву залпов:</h3>
-                                        <p onClick={() => {
-                                            handleFilter(0, 25)
-                                            navigate('/catalog/all')
-                                        }}>ДО 25 ЗАЛПОВ</p>
-                                        <p onClick={() => {
-                                            handleFilter(25, 49)
-                                            navigate('/catalog/all')
-                                        }}>ОТ 25 ДО 49 ЗАЛПОВ</p>
-                                        <p onClick={() => {
-                                            handleFilter(49, 100)
-                                            navigate('/catalog/all')
-                                        }}>ОТ 49 ДО 100 ЗАЛПОВ</p>
-                                        <p onClick={() => {
-                                            handleFilter(100, 364)
-                                            navigate('/catalog/all')
-                                        }}>ОТ 100 ДО 364 ЗАЛПОВ</p>
-                                    </div>
                                 </div>
                                 <div className={s.vertical + " " + s.lastOne}>
                                     <div className={s.infoDiv}>
                                         <h3>Актуальные</h3>
-                                        {categories && categories.map((item) => <p onClick={() => navigate(`/category/${item.category}`)}>{item.category}</p>)}
+                                        {categories && categories.map((item) => (
+                                            <p key={item._id} onClick={() => navigate(`/category/${item.category}`)}>
+                                                {item.category}
+                                            </p>
+                                        ))}
                                     </div>
                                 </div>
                             </div>

@@ -172,25 +172,24 @@
 }
 .miniModal {
     position: absolute;
-    width: 593px;
+    width: 400px;
     z-index: 3 !important;
-    min-height: 250px;
+    min-height: 200px;
     background-color: white;
     box-shadow: -5px 6px 28px -1px rgba(0,0,0,0.27);
     border-radius: 6px;
-    margin-left: -220px;
+    margin-left: -120px;
     margin-top: 10px;
     display: flex;
     padding: 20px;
-    hr {
-        margin-top: 17px;
-    }
+
     h3 {
         font-size: 14px;
         color: #333333;
         font-weight: normal;
         padding: 5px;
     }
+
     p {
         font-size: 12px;
         color: #343742;
@@ -198,18 +197,22 @@
         padding: 10px 5px;
         cursor: pointer;
         transition: .2s;
+
         &:hover {
             border-color: rgb(52, 55, 66);
             color: rgb(247, 110, 6)!important;
         }
     }
+
     .infoDiv {
         margin-top: 25px;
     }
+
     .vertical {
         padding: 0 15px;
         border-right: 1px solid rgba(52, 55, 66, 0.1);
     }
+
     .lastOne {
         border-right: 0 !important;
     }
