@@ -1,40 +1,42 @@
-import style from './Products.module.scss'
+import style from './Discounts.module.scss'
 import {useEffect, useState} from "react";
 import {useDebounce} from "../../../hooks/useDebounce";
-import AddProductModal from "../Modals/AddProductModal/AddProductModal";
+import AddDiscountModal from "../Modals/AddDiscountModal/AddDiscountModal";
 import axios, {redirect, url} from "../../../axios/axios";
 
-const Products = () => {
-    const [products, setProducts] = useState()
+const Discounts = () => {
+    const [discounts, setDiscounts] = useState()
     const [value, setValue] = useState("")
     const [createModal, setCreateModal] = useState(false)
     const debouncedValue = useDebounce(value, 400)
     
-    const getProducts = async () => {
+    const getDiscounts = async () => {
         try {
-            const {data} = await axios.get("/getAllProducts");
-            setProducts(data);
+            const {data} = await axios.get("/discounts");
+            setDiscounts(data);
         } catch (error) {
-            console.error("Error fetching products:", error);
+            console.error("Error fetching discounts:", error);
         }
     };
+
     useEffect(() => {
-        getProducts();
+        getDiscounts();
     }, []);
 
-    const productsSearch = products?.filter(item => item.name.toLowerCase().includes(debouncedValue.toLowerCase()))
-
+    const discountsSearch = discounts?.filter(item => item.title.toLowerCase().includes(debouncedValue.toLowerCase()))
+    console.log(discountsSearch)
     return (
         <div className={style.categoryContainer}>
-            <AddProductModal update={getProducts} createModal={createModal} setCreateModal={setCreateModal}/>
+            <AddDiscountModal update={getDiscounts} createModal={createModal} setCreateModal={setCreateModal}/>
             <div className={style.categoryTitle}>
-                <h1>Список товаров</h1>
+                <h1>Список скидок</h1>
             </div>
             <div className={style.categoryTitle}>
                 <h3>Поиск</h3>
                 <input value={value} onChange={(e) => setValue(e.target.value)} type="text"/>
                 <div>
-                    <button className={style.addCategoryBtn} onClick={() => setCreateModal(true)}>Добавить товар
+                    <button className={style.addCategoryBtn} onClick={() => setCreateModal(true)}>
+                        Добавить скидку
                     </button>
                 </div>
             </div>
@@ -47,38 +49,28 @@ const Products = () => {
                                 Изображение
                             </th>
                             <th>
-                                Товар
+                                Название
                             </th>
                             <th>
-                                Артикул
-                            </th>
-                            <th>
-                                Категория
-                            </th>
-                            <th>
-                                Цена
+                                Описание
                             </th>
                         </tr>
                         </thead>
                         <tbody>
-                        {products ? (
-                            productsSearch.map((item) => (
+                        {discounts ? (
+                            discountsSearch.map((item) => (
                                 <tr key={item._id} className={style.trItem} 
-                                    onClick={() => window.location.replace(`${redirect}/admin/product/${item._id}`)}>
+                                    onClick={() => window.location.replace(`${redirect}/admin/discount/${item._id}`)}>
                                     <td className={style.tdImg}>
-                                        <img src={`${url}/uploads/${item.image}`} alt={'/'}/>
+                                        <img src={`${url}/uploads/${item.img}`} alt={'/'}/>
                                     </td>
-                                    <td>{item.name}</td>
-                                    <td>{item.article}</td>
-                                    <td>{item.category}</td>
-                                    <td>
-                                        <strong>{item.price}</strong>
-                                    </td>
+                                    <td>{item.title}</td>
+                                    <td>{item.description}</td>
                                 </tr>
                             ))
                         ) : (
                             <tr>
-                                <td colSpan="5">Loading...</td>
+                                <td colSpan="3">Loading...</td>
                             </tr>
                         )}
                         </tbody>
@@ -89,4 +81,4 @@ const Products = () => {
     );
 };
 
-export default Products;
+export default Discounts; 

@@ -44,7 +44,7 @@ export const ContactBlock = () => {
                     </svg>
                         Написать в вайбер
                     </a>
-                    <a href="viber://chat?number=%2B375293570821" className={s.catalog}>Запросить звонок</a>
+                    {/* <a href="viber://chat?number=%2B375293570821" className={s.catalog}>Запросить звонок</a> */}
                 </div>
             </div>
         </div>

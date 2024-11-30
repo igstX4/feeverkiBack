@@ -29,6 +29,8 @@ import { ConfigProvider } from 'antd';
 import ruRu from 'antd/locale/ru_RU';
 import Slider from "./components/admin/Slider/Slider";
 import DifferentFireworks from "./pages/DifferentFireworks/DifferentFireworks";
+import Discounts from "./components/admin/Discounts/Discounts";
+import EditDiscount from "./components/admin/EditDiscount/EditDiscount";
 
 function App() {
     const user = useSelector((state) => state.user)
@@ -48,13 +50,6 @@ function App() {
     useEffect(() => {
         dispatch(fetchMe())
     }, [])
-    const test = () => {
-
-        const a = 5
-        const b = 10
-        return a + b
-
-    }
 
 
     return (
@@ -85,6 +80,8 @@ function App() {
                                 <Route path='/admin/moderators'
                                     element={<ProtectedRoute><Moderators /></ProtectedRoute>} />
                                 <Route path='/admin/settings' element={<ProtectedRoute><Settings /></ProtectedRoute>} />
+                                <Route path="discounts" element={<Discounts/>}/>
+                                <Route path="discount/:id" element={<EditDiscount/>}/>
                             </Route>
                             <Route path="/admin/product/:id"
                                 element={<ProtectedRoute><DetailedProduct /></ProtectedRoute>} />

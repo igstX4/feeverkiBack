@@ -20,7 +20,8 @@
     z-index: 201;
     min-width: 400px;
     padding: 20px;
-
+    max-height: 90vh;
+    overflow-y: auto;
   }
 }
 
@@ -28,11 +29,14 @@
   opacity: 1;
   pointer-events: all;
 }
+
 .form {
   .formwrapp {
     display: flex;
+    gap: 30px;
+    
     .rightCont {
-      margin-left: 30px;
+      flex: 1;
     }
   }
 }

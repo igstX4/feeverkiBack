@@ -65,7 +65,7 @@ const HeaderFixedResponsible = ({setModal, open}) => {
         <div className={`${s.HeaderResponsibleFixedWrapper} ${open ? s.openedFixed : ""}`}>
             <div className={s.topItems}>
                 <img onClick={setModal} src={image7} alt="menu" className={s.menu}/>
-                <h1 className={s.number}>8(812)987-78-51</h1>
+                <h1 className={s.number}>+375293570821</h1>
                 <svg
                 className={s.image}
                 onClick={() => navigate('/basket')}

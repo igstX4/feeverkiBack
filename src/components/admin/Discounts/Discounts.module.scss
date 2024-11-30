@@ -1,0 +1,94 @@
+.categoryContainer {
+  min-height: 500px;
+  width: 100%;
+
+  .categoryTitle {
+    display: flex;
+    flex-direction: column;
+    h1 {
+      font-size: 28px;
+      font-weight: 500;
+    }
+    h3 {
+      margin-top: 10px;
+      font-size: 20px;
+      font-weight: 400;
+    }
+    input {
+      margin-top: 15px;
+      width: 250px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      outline: none;
+      transition: border-color 0.2s ease-in-out;
+    }
+    input:focus {
+      border-color: #007bff;
+      box-shadow: 0 0 0 0.1rem rgba(0, 123, 255, 0.25);
+    }
+    .addCategoryBtn {
+      margin-top: 10px;
+      width: 200px;
+      height: 45px;
+      outline: none;
+      border: none;
+      border-radius: 5px;
+      background: linear-gradient(168deg, rgb(255, 141, 0), rgb(255, 49, 92));
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: .3s;
+      &:hover {
+        background: linear-gradient(168deg, rgb(230, 127, 0), rgb(255, 19, 68));
+      }
+    }
+  }
+
+  .table {
+    margin-top: 20px;
+    width: 100%;
+    
+    .tableBody {
+      width: 100%;
+      
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        
+        th {
+          text-align: left;
+          padding: 12px;
+          background-color: #f8f9fa;
+          border-bottom: 2px solid #dee2e6;
+        }
+        
+        td {
+          padding: 12px;
+          border-bottom: 1px solid #dee2e6;
+          
+          &.tdImg {
+            width: 100px;
+            
+            img {
+              width: 80px;
+              height: 80px;
+              object-fit: cover;
+              border-radius: 4px;
+            }
+          }
+        }
+        
+        .trItem {
+          cursor: pointer;
+          transition: background-color 0.2s;
+          
+          &:hover {
+            background-color: #f8f9fa;
+          }
+        }
+      }
+    }
+  }
+} 

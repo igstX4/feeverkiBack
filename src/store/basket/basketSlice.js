@@ -5,7 +5,7 @@ const basketSlice = createSlice({
     initialState: [],
     reducers: {
         addToCart(state, action) {
-            const {_id, title, quantity, price, img, totalQuantity} = action.payload
+            const {_id, title, quantity, price, oldPrice, img, totalQuantity} = action.payload
             state.push({
                 _id,
                 title,
@@ -13,6 +13,7 @@ const basketSlice = createSlice({
                 quantity,
                 img,
                 price,
+                oldPrice,
                 totalQuantity
             })
         },
@@ -22,13 +23,10 @@ const basketSlice = createSlice({
 
             if (func === "+" && item.quantity <= +item.totalQuantity) {
                 item.quantity += 1
-                item.totalPrice += item.price
-            } else {
+                item.totalPrice = item.price * item.quantity
+            } else if (item.quantity > 1) {
                 item.quantity -= 1
-                item.totalPrice -= item.price
-            }
-            if (item.quantity === 0) {
-                state.splice(item, 1);
+                item.totalPrice = item.price * item.quantity
             }
         },
         deleteFromCart(state, action) {

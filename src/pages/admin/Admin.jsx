@@ -46,6 +46,9 @@ export const Admin = ({user}) => {
                                 <Link to="/admin/products" className={s.item}>
                                     <h3>Продукция</h3>
                                 </Link>
+                                <Link to="/admin/discounts" className={s.item}>
+                                    <h3>Скидки</h3>
+                                </Link>
                                 <Link to="/admin/moderators" className={s.item}>
                                     <h3>Модераторы</h3>
                                 </Link>

@@ -18,7 +18,7 @@ export const BurgerModal = ({ opened, setOpened }) => {
                     </div>
                     <div className={s.links}>
                         <NavLink to={"/"}>Главная</NavLink>
-                        <NavLink to={"/catalog/superFireworks"}>Каталог</NavLink>
+                        <NavLink to={"/catalog/super"}>Каталог</NavLink>
                         <NavLink to={"/stock"}>Акции</NavLink>
                         <NavLink to={"/security"}>Техника безопасности</NavLink>
                         {/* <NavLink to={"/security"}>Сотрудничество</NavLink> */}
@@ -49,13 +49,7 @@ export const BurgerModal = ({ opened, setOpened }) => {
                             </a>
                         </div>
                     </button>
-                    <button className={s.catalog}>
-                        <div>
-                            <a href="viber://chat?number=%2B375293570821">
-                            Запросить звонок
-                            </a>
-                        </div>
-                    </button>
+                    
                 </div>
             </div>
         </div>

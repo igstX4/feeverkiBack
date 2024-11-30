@@ -17,7 +17,7 @@ const Footer = () => {
 
             <div className={s.hr} />
             <div className={s.container}>
-               
+
                 <div className={s.map}>
                     <iframe
                         className={s.iframe}
@@ -111,7 +111,9 @@ const Footer = () => {
             <div className={s.footerText}>
                 <p>Продолжая использование сайта, вы даете согласие на использование сайтом cookies и обработку
                     персональных данных.</p><br />
-                <p>ИП Громов М.Б. | ИНН 761030104479 | ОГРН 322762700010477</p>
+                <p>ЧТУП "Оазис Веселья "
+                    УНП 691065420
+                    Юр. адрес г.Марьина Горка ул.Советская 7/5</p>
             </div>
         </>
     );

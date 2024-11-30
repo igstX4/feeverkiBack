@@ -1,17 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import style from './EditProductModal.module.scss'
-import {Button, Form, Input, notification} from 'antd';
+import {Button, Form, Input, notification, Switch} from 'antd';
 import {Select} from 'antd'
 import UploadButton from "../../../UploadButton/UploadButton";
 import axios from "../../../../axios/axios";
 
+const MyFormItemContext = React.createContext([]);
 
 function toArr(str) {
     return Array.isArray(str) ? str : [str];
 }
-
-
-const MyFormItemContext = React.createContext([]);
 
 const MyFormItem = ({name, ...props}) => {
     const prefixPath = React.useContext(MyFormItemContext);
@@ -20,23 +18,11 @@ const MyFormItem = ({name, ...props}) => {
 };
 
 const EditProductModal = ({product, modal, setModal}) => {
-    const [values, setValues] = useState({
-        name: '',
-        category: '',
-        video: '',
-        price: '',
-        priceKiosk: '',
-        totalCount: '',
-        options1: '',
-        options2: '',
-        options3: '',
-        options4: '',
-        image: ''
-    });
-    const {name, category, video, priceKiosk, options1, options2, options3, options4, price, image, totalCount} = values;
-    const [categories, setCategories] = useState()
+    const [selectedCategory, setSelectedCategory] = useState(null);
+    const [categories, setCategories] = useState([]);
     const [fileList, setFileList] = useState();
-    console.log(product)
+    const [form] = Form.useForm();
+
     useEffect(() => {
         const getCategories = async () => {
             try {
@@ -49,64 +35,144 @@ const EditProductModal = ({product, modal, setModal}) => {
         getCategories()
     }, [])
 
-    const handleCategory = (item) => {
-        setValues(prevValues => ({
-            ...prevValues,
-            category: item
-        }));
-    }
-
-    const loadProfile = () => {
-        setValues(prev => {
-            return {
-                ...prev,
-                name: product?.name,
-                category: product?.category,
-                video: product?.video,
-                totalCount: product?.totalCount,
-                priceKiosk: product?.priceKiosk,
-                options1: product?.options[0].value,
-                options2: product?.options[1].value,
-                options3: product?.options[2].value,
-                options4: product?.options[3].value,
-                image: product?.image,
-                price: product?.price
-            };
-        });
-    }
+    // Устанавливаем значения формы при изменении product
     useEffect(() => {
-        loadProfile();
-    }, [product]);
+        if (product) {
+            setSelectedCategory(product.category);
+            form.setFieldsValue({
+                name: product.name,
+                category: product.category,
+                article: product.article,
+                price: product.price,
+                oldPrice: product.oldPrice,
+                inStock: product.inStock,
+                shots: product.shots,
+                caliber: product.caliber,
+                duration: product.duration,
+                packQuantity: product.packQuantity,
+                effect: product.effect,
+                height: product.height,
+                length: product.length,
+                video: product.video
+            });
+        }
+    }, [product, form]);
 
-    const onFinish = async (value) => {
-        const {name, price, priceKiosk, video, options1, options2, options3, options4, category, totalCount} = value
+    const renderCategoryFields = () => {
+        if (!selectedCategory) return null;
+
+        const fields = [];
+
+        if (['Супер салюты', 'Средние салюты', 'Малые салюты'].includes(selectedCategory)) {
+            fields.push(
+                <MyFormItem key="shots" name="shots" label="Количество выстрелов">
+                    <Input type="number" />
+                </MyFormItem>,
+                <MyFormItem key="caliber" name="caliber" label="Калибр">
+                    <Input />
+                </MyFormItem>,
+                <MyFormItem key="duration" name="duration" label="Время">
+                    <Input />
+                </MyFormItem>
+            );
+        }
+
+        if (['Петарды', 'Рим свечи', 'Ракеты', 'Бенгальские огни'].includes(selectedCategory)) {
+            fields.push(
+                <MyFormItem key="packQuantity" name="packQuantity" label="Количество в упаковке">
+                    <Input type="number" />
+                </MyFormItem>
+            );
+        }
+
+        if (['Петарды', 'Рим свечи'].includes(selectedCategory)) {
+            fields.push(
+                <MyFormItem key="effect" name="effect" label="Эффект">
+                    <Input />
+                </MyFormItem>
+            );
+        }
+
+        if (selectedCategory === 'Фонтаны') {
+            fields.push(
+                <MyFormItem key="height" name="height" label="Высота">
+                    <Input />
+                </MyFormItem>,
+                <MyFormItem key="video" name="video" label="Видео">
+                    <Input />
+                </MyFormItem>
+            );
+        }
+
+        if (selectedCategory === 'Бенгальские огни') {
+            fields.push(
+                <MyFormItem key="length" name="length" label="Длина">
+                    <Input />
+                </MyFormItem>,
+                <MyFormItem key="duration" name="duration" label="Время">
+                    <Input />
+                </MyFormItem>,
+                <MyFormItem key="video" name="video" label="Видео">
+                    <Input />
+                </MyFormItem>
+            );
+        }
+
+        if (selectedCategory === 'Ракеты') {
+            fields.push(
+                <MyFormItem key="video" name="video" label="Видео">
+                    <Input />
+                </MyFormItem>
+            );
+        }
+
+        return fields;
+    };
+
+    const onFinish = async (values) => {
         const formData = new FormData();
-        const optionsArr = [
-            {
-                name: "Залпов",
-                value: options1
-            },
-            {
-                name: "Калибр",
-                value: options2
-            },
-            {
-                name: "Время",
-                value: options3
-            },
-            {
-                name: "Эффекты",
-                value: options4
-            },
-        ]
-        formData.append("name", name)
-        formData.append("price", price)
-        formData.append("priceKiosk", priceKiosk)
-        formData.append("video", video)
-        formData.append("totalCount", totalCount)
-        formData.append("options", JSON.stringify(optionsArr))
-        formData.append("category", category)
-        fileList?.forEach(item => formData.append("image", item.originFileObj))
+        
+        // Базовые поля
+        formData.append("name", values.name);
+        formData.append("price", values.price);
+        formData.append("category", values.category);
+        formData.append("article", values.article);
+        formData.append("oldPrice", values.oldPrice || "");
+        formData.append("inStock", values.inStock || false);
+        
+        if (fileList?.length > 0) {
+            fileList.forEach(item => formData.append("image", item.originFileObj));
+        }
+
+        // Дополнительные поля в зависимости от категории
+        if (['Супер салюты', 'Средние салюты', 'Малые салюты'].includes(values.category)) {
+            formData.append("shots", values.shots);
+            formData.append("caliber", values.caliber);
+            formData.append("duration", values.duration);
+        }
+
+        if (['Петарды', 'Рим свечи', 'Ракеты', 'Бенгальские огни'].includes(values.category)) {
+            formData.append("packQuantity", values.packQuantity);
+        }
+
+        if (['Петарды', 'Рим свечи'].includes(values.category)) {
+            formData.append("effect", values.effect);
+        }
+
+        if (values.category === 'Фонтаны') {
+            formData.append("height", values.height);
+            formData.append("video", values.video);
+        }
+
+        if (values.category === 'Бенгальские огни') {
+            formData.append("length", values.length);
+            formData.append("duration", values.duration);
+            formData.append("video", values.video);
+        }
+
+        if (values.category === 'Ракеты') {
+            formData.append("video", values.video);
+        }
 
         try {
             await axios.put(`/editProduct/${product?._id}`, formData, {
@@ -114,125 +180,73 @@ const EditProductModal = ({product, modal, setModal}) => {
                     'Content-Type': 'multipart/form-data'
                 }
             });
-            window.location.reload()
+            window.location.reload();
             notification.success({
                 message: 'Успех.',
                 duration: 1.5
             });
         } catch(e) {
-            console.log(e)
+            console.log(e);
+            notification.error({
+                message: 'Ошибка при обновлении продукта',
+                duration: 1.5
+            });
         }
     }
+
+    if (!product || !categories.length) {
+        return null; // или можно показать спиннер загрузки
+    }
+
     return (
         <div className={modal ? `${style.modal} ${style.active}` : style.modal}
              onClick={() => setModal(false)}>
             <div className={style.modalContent} onClick={(e) => e.stopPropagation()}>
                 <Form
+                    form={form}
                     name="form_item_path"
                     layout="vertical"
                     onFinish={onFinish}
+                    initialValues={{ inStock: true }}
                     className={style.form}
-                    fields={[
-                        {
-                            name: ["name"],
-                            value: name,
-                        },
-                        {
-                            name: ["category"],
-                            value: category,
-                        },
-                        {
-                            name: ["totalCount"],
-                            value: totalCount,
-                        },
-                        {
-                            name: ["video"],
-                            value: video,
-                        },
-                        {
-                            name: ["priceKiosk"],
-                            value: priceKiosk,
-                        },
-                        {
-                            name: ["options1"],
-                            value: options1,
-                        },
-                        {
-                            name: ["options2"],
-                            value: options2,
-                        },
-                        {
-                            name: ["options3"],
-                            value: options3,
-                        },
-                        {
-                            name: ["options4"],
-                            value: options4,
-                        },
-                        {
-                            name: ["price"],
-                            value: price,
-                        },
-                        {
-                            name: ["image"],
-                            value: image,
-                        },
-                    ]}
                 >
                     <div className={style.formwrapp}>
                         <div>
                             <MyFormItem name="image" label="Загрузить новое фото">
-                                <UploadButton
-                                    setFileList={setFileList}
-                                />
+                                <UploadButton setFileList={setFileList} />
                             </MyFormItem>
                             <MyFormItem name="name" label="Название">
                                 <Input/>
                             </MyFormItem>
+                            <MyFormItem name="article" label="Артикул">
+                                <Input/>
+                            </MyFormItem>
                             <MyFormItem name="category" label="Категория">
-                                {categories ? <Select
-                                    defaultValue="Выберите категорию"
-                                    style={{width: '95%', zIndex: "999999"}}
-                                    onChange={handleCategory}
-                                    options={
-                                        categories.map((item) => {
-                                            return {
-                                                value: item.category, label: item.category
-                                            }
-                                        })
-                                    }
-                                /> : <p>Loading...</p>}
-                            </MyFormItem>
-                            <MyFormItem name="totalCount" label="В наличии">
-                                <Input/>
-                            </MyFormItem>
-                            <MyFormItem name="priceKiosk" label="Цена в киосках">
-                                <Input/>
+                                <Select
+                                    style={{width: '95%'}}
+                                    onChange={(value) => setSelectedCategory(value)}
+                                    options={categories.map((item) => ({
+                                        value: item.category,
+                                        label: item.category
+                                    }))}
+                                />
                             </MyFormItem>
                             <MyFormItem name="price" label="Цена">
-                                <Input/>
+                                <Input type="number"/>
                             </MyFormItem>
-                            <MyFormItem name="video" label="Видео на ваш товар (youtube)">
-                                <Input/>
+                            <MyFormItem name="oldPrice" label="Старая цена">
+                                <Input type="number"/>
                             </MyFormItem>
+                            <Form.Item name="inStock" label="В наличии" valuePropName="checked">
+                                <Switch defaultChecked />
+                            </Form.Item>
                         </div>
                         <div className={style.rightCont}>
-                            <MyFormItem name="options1" label="Залпов">
-                                <Input placeholder={"55"}/>
-                            </MyFormItem>
-                            <MyFormItem name="options2" label="Калибр">
-                                <Input placeholder={"1 д"}/>
-                            </MyFormItem>
-                            <MyFormItem name="options3" label="Время">
-                                <Input placeholder={"60 сек"}/>
-                            </MyFormItem>
-                            <MyFormItem name="options4" label="Эффекты">
-                                <Input placeholder={"11 сек"}/>
-                            </MyFormItem>
+                            {renderCategoryFields()}
                         </div>
                     </div>
                     <Button type="primary" htmlType="submit">
-                        Submit
+                        Сохранить
                     </Button>
                 </Form>
             </div>

@@ -80,7 +80,7 @@ const SlidersHome = () => {
 
                 </div>
                 <div className={style.someFireworks}>
-                    <button>
+                    <button onClick={() => navigate('/catalog/all')}>
                         <p>Каталог</p>
                     </button>
                 </div>

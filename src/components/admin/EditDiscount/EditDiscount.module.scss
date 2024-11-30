@@ -1,0 +1,103 @@
+.editContainer {
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+
+    h1 {
+        font-size: 28px;
+        font-weight: 500;
+        margin-bottom: 30px;
+    }
+
+    .form {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+        .inputGroup {
+            margin-bottom: 20px;
+
+            label {
+                display: block;
+                margin-bottom: 8px;
+                font-weight: 500;
+            }
+
+            input, textarea {
+                width: 100%;
+                padding: 8px;
+                border: 1px solid #d9d9d9;
+                border-radius: 4px;
+                font-size: 14px;
+                transition: all 0.3s;
+
+                &:focus {
+                    border-color: #1677ff;
+                    box-shadow: 0 0 0 2px rgba(5, 145, 255, 0.1);
+                    outline: none;
+                }
+            }
+
+            textarea {
+                min-height: 120px;
+                resize: vertical;
+            }
+        }
+
+        .currentImage {
+            margin: 10px 0;
+            
+            img {
+                max-width: 200px;
+                max-height: 200px;
+                object-fit: cover;
+                border-radius: 4px;
+                margin-bottom: 8px;
+            }
+
+            p {
+                color: #666;
+                font-size: 14px;
+            }
+        }
+
+        .error {
+            color: #ff4d4f;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 16px;
+            margin-top: 24px;
+
+            button {
+                padding: 8px 16px;
+                border-radius: 4px;
+                font-size: 16px;
+                cursor: pointer;
+                transition: all 0.3s;
+                border: none;
+
+                &.saveButton {
+                    background: #1677ff;
+                    color: white;
+
+                    &:hover {
+                        background: #4096ff;
+                    }
+                }
+
+                &.deleteButton {
+                    background: #ff4d4f;
+                    color: white;
+
+                    &:hover {
+                        background: #ff7875;
+                    }
+                }
+            }
+        }
+    }
+} 

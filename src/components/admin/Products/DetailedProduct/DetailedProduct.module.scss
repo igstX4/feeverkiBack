@@ -85,6 +85,14 @@
         margin-top: 3px;
         span {
           font-weight: normal;
+
+          &.inStock {
+            color: rgb(55, 180, 74);
+          }
+          
+          &.outOfStock {
+            color: #ff4d4f;
+          }
         }
       }
 
@@ -96,9 +104,31 @@
         margin-top: 5px;
       }
 
-      .price {
-        margin-top: 5px;
-        //font-weight: bold;
+      .priceInfo {
+        margin: 10px 0;
+        
+        .price {
+          font-weight: bold;
+          span {
+            color: #262626;
+          }
+        }
+
+        .oldPrice {
+          margin-top: 5px;
+          span {
+            color: #999;
+            text-decoration: line-through;
+          }
+        }
+
+        .discount {
+          margin-top: 5px;
+          span {
+            color: #ff4d4f;
+            font-weight: bold;
+          }
+        }
       }
     }
   }

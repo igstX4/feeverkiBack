@@ -15,6 +15,7 @@ const HomeProducts = () => {
             console.error("Error fetching products:", error);
         }
     };
+
     useEffect(() => {
         getProducts();
     }, []);
@@ -24,21 +25,20 @@ const HomeProducts = () => {
             <div className={style.textRecommend}>
                 <div className={style.titleContainer}>
                     <TextWithLines text={"Рекомендуем"}/>
-                    <p className={style.descr}>Выбрав один из этих салютов, вы точно не прогадаете!</p>
+                    <p className={style.descr}>Выбрав один из этих товаров, вы точно не прогадаете!</p>
                 </div>
-
             </div>
             <div className={style.productItem}>
-                {
-                    products ? (
-                        products.map((item, i) => {
-                            return <HomeProductItem product={item} key={i}/>
-                        })
-                    ) : <p>loading..</p>
-                }
+                {products ? (
+                    products.map((item) => (
+                        <HomeProductItem product={item} key={item._id}/>
+                    ))
+                ) : (
+                    <p>loading..</p>
+                )}
             </div>
         </div>
     )
 }
 
-export default HomeProducts
+export default HomeProducts;

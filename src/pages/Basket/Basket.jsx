@@ -53,7 +53,10 @@ const Basket = () => {
                                             <button className={style.btnItem} onClick={() => dispatch(changeQuantity({ _id: item._id, func: "+" }))}>+</button>
                                         </div>
                                         <div className={style.price}>
-                                            <p>{item.price * item.quantity} BYN</p>
+                                            <p className={style.currentPrice}>{item.price * item.quantity} BYN</p>
+                                            {item.oldPrice && (
+                                                <p className={style.oldPrice}>{item.oldPrice * item.quantity} BYN</p>
+                                            )}
                                         </div>
                                     </div>
                                     <div className={style.btn} onClick={() => dispatch(deleteFromCart({ _id: item._id }))}>
