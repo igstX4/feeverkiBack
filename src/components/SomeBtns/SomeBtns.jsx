@@ -15,10 +15,6 @@ export const SomeBtns = () => {
                     <p><span>Бесплатная</span> доставка от 100р Минск - Минский район.</p>
                 </div>
                 <div className={s.block}>
-                    <Discount />
-                    <p><span>Скидка 20%</span> на второй салют в заказе!</p>
-                </div>
-                <div className={s.block}>
                     <FireWork />
                     <p><span>Выгоднее</span> чем в киосках и супермаркетах</p>
                 </div>

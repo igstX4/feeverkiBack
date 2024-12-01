@@ -25,6 +25,7 @@ const DifferentFireworks = ({defaultFilter, category}) => {
                 const fireworksOnly = data.filter(item => 
                     ['Супер салюты', 'Средние салюты', 'Малые салюты'].includes(item.category)
                 );
+
                 setProducts(fireworksOnly);
                 
                 if (type === "all") {
@@ -32,20 +33,20 @@ const DifferentFireworks = ({defaultFilter, category}) => {
                     setLineText('ВСЕ САЛЮТЫ');
                     setDesk('');
                 } else if (type === "small") {
-                    const filteredData = fireworksOnly.filter(item => item.price <= 104);
+                    const filteredData = fireworksOnly.filter(item => item.price <= 289);
                     setFilteredArr(filteredData);
                     setLineText('МАЛЫЕ САЛЮТЫ');
-                    setDesk('Салюты до 104 BYN');
+                    setDesk('Салюты до 289 BYN');
                 } else if (type === "big") {
-                    const filteredData = fireworksOnly.filter(item => item.price >= 104 && item.price <= 347);
+                    const filteredData = fireworksOnly.filter(item => item.price >= 290 && item.price <= 599);
                     setFilteredArr(filteredData);
                     setLineText('БОЛЬШИЕ САЛЮТЫ');
-                    setDesk('Салюты от 104 до 347 BYN');
+                    setDesk('Салюты от 290 до 599 BYN');
                 } else if (type === "super") {
-                    const filteredData = fireworksOnly.filter(item => item.price >= 347);
+                    const filteredData = fireworksOnly.filter(item => item.price >= 600);
                     setFilteredArr(filteredData);
                     setLineText('СУПЕР САЛЮТЫ');
-                    setDesk('Салюты от 347 BYN');
+                    setDesk('Салюты от 600 BYN');
                 }
             } else {
                 const {data} = await axios.get(`/getAllProducts/${name}`);

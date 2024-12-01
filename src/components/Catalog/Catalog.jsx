@@ -32,8 +32,8 @@ export const Catalog = () => {
             {
                 path: '/catalog/big',
                 image: zalp,
-                title: 'СРЕДНИЕ САЛЮТЫ',
-                description: 'ОТ 104 ДО 347 BYN'
+                title: 'БОЛЬШИЕ САЛЮТЫ',
+                description: 'ОТ 290 ДО 599 BYN'
             },
             {
                 path: '/catalog/small',

@@ -139,6 +139,7 @@ const EditProductModal = ({product, modal, setModal}) => {
         formData.append("article", values.article);
         formData.append("oldPrice", values.oldPrice || "");
         formData.append("inStock", values.inStock || false);
+        formData.append("video", values.video || "");
         
         if (fileList?.length > 0) {
             fileList.forEach(item => formData.append("image", item.originFileObj));
@@ -161,17 +162,11 @@ const EditProductModal = ({product, modal, setModal}) => {
 
         if (values.category === 'Фонтаны') {
             formData.append("height", values.height);
-            formData.append("video", values.video);
         }
 
         if (values.category === 'Бенгальские огни') {
             formData.append("length", values.length);
             formData.append("duration", values.duration);
-            formData.append("video", values.video);
-        }
-
-        if (values.category === 'Ракеты') {
-            formData.append("video", values.video);
         }
 
         try {
@@ -237,9 +232,12 @@ const EditProductModal = ({product, modal, setModal}) => {
                             <MyFormItem name="oldPrice" label="Старая цена">
                                 <Input type="number"/>
                             </MyFormItem>
-                            <Form.Item name="inStock" label="В наличии" valuePropName="checked">
+                            <MyFormItem name="inStock" label="В наличии" valuePropName="checked">
                                 <Switch defaultChecked />
-                            </Form.Item>
+                            </MyFormItem>
+                            <MyFormItem name="video" label="Ссылка на видео (необязательно)">
+                                <Input placeholder="https://youtube.com/..." />
+                            </MyFormItem>
                         </div>
                         <div className={style.rightCont}>
                             {renderCategoryFields()}

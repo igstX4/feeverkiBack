@@ -1,8 +1,8 @@
 import axios from "axios";
 // export const url = ''
-export const url = 'https://feerverk.by/internal';
-export const redirect = 'https://feerverk.by'; // 
-
+export const url = 'https://feerverk.by/internal'; // 
+export const redirect = 'https://feerverk.by'; // https://www.youtube.com/watch?v=3ABzKfLySb0
+// ''
 const instance = axios.create({
     baseURL: url,
     headers: { 'Content-Type': 'application/json', },

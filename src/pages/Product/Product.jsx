@@ -145,7 +145,7 @@ const Product = () => {
                 <div className={style.product}>
                     <div>
                         <div className={style.info}>
-                            {['Фонтаны', 'Бенгальские огни', 'Ракеты'].includes(product?.category) && product?.video && (
+                            {product?.video && (
                                 <div className={style.iframeItem}>
                                     <iframe 
                                         className="video-wrapper" 

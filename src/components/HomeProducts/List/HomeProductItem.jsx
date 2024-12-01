@@ -83,7 +83,7 @@ const HomeProductItem = ({ product }) => {
                 </div>
             </div>
             <div className={style.addToBasket}>
-                {['Фонтаны', 'Бенгальские огни', 'Ракеты'].includes(product?.category) && product?.video && (
+                {product?.video && (
                     <button 
                         className={style.ytBtn} 
                         onClick={(e) => {

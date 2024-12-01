@@ -133,9 +133,9 @@ const Header = ({ setModal, setFilter }) => {
                                 <div className={s.vertical}>
                                     <div className={s.infoDiv}>
                                         <h3>Салюты по цене:</h3>
-                                        <p onClick={() => navigate('/catalog/super')}>ОТ 343 BYN</p>
-                                        <p onClick={() => navigate('/catalog/big')}>ОТ 103 ДО 343 BYN</p>
-                                        <p onClick={() => navigate('/catalog/small')}>ДО 103 BYN</p>
+                                        <p onClick={() => navigate('/catalog/super')}>ОТ 600 BYN</p>
+                                        <p onClick={() => navigate('/catalog/big')}>ОТ 290 ДО 599 BYN</p>
+                                        <p onClick={() => navigate('/catalog/small')}>ДО 289 BYN</p>
                                         <p onClick={() => navigate('/catalog/all')}>ВСЕ САЛЮТЫ</p>
                                     </div>
                                 </div>

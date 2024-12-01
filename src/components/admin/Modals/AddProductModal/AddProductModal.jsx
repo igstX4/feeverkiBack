@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import style from './AddProductModal.module.scss'
-import {Button, Form, Input, notification} from "antd";
+import {Button, Form, Input, notification, Switch} from "antd";
 import {Select} from 'antd';
 import UploadButton from "../../../UploadButton/UploadButton";
 import axios from "../../../../axios/axios";
@@ -34,63 +34,68 @@ const AddProductModal = ({createModal, setCreateModal, update}) => {
         getCategories()
     }, [])
 
-    const onFinish = async (value) => {
-        const formData = new FormData();
-        
-        // Базовые поля для всех категорий
-        formData.append("name", value.name);
-        formData.append("price", value.price);
-        formData.append("category", value.category);
-        formData.append("article", value.article);
-        fileList?.forEach(item => formData.append("image", item.originFileObj));
-
-        // Дополнительные поля в зависимости от категории
-        if (['Супер салюты', 'Средние салюты', 'Малые салюты'].includes(value.category)) {
-            formData.append("shots", value.shots);
-            formData.append("caliber", value.caliber);
-            formData.append("duration", value.duration);
-        }
-
-        if (['Петарды', 'Рим свечи', 'Ракеты', 'Бенгальские огни'].includes(value.category)) {
-            formData.append("packQuantity", value.packQuantity);
-        }
-
-        if (['Петарды', 'Рим свечи'].includes(value.category)) {
-            formData.append("effect", value.effect);
-        }
-
-        if (value.category === 'Фонтаны') {
-            formData.append("height", value.height);
-            formData.append("video", value.video);
-        }
-
-        if (value.category === 'Бенгальские огни') {
-            formData.append("length", value.length);
-            formData.append("duration", value.duration);
-            formData.append("video", value.video);
-        }
-
-        if (value.category === 'Ракеты') {
-            formData.append("video", value.video);
-        }
-
+    const onFinish = async (values) => {
         try {
-            const {data} = await axios.post(`/createProduct`, formData, {
+            const formData = new FormData();
+            
+            // Базовые поля
+            formData.append('name', values.name);
+            formData.append('price', values.price);
+            formData.append('category', values.category);
+            formData.append('article', values.article);
+            formData.append('oldPrice', values.oldPrice || '');
+            formData.append('inStock', values.inStock || false);
+            formData.append('video', values.video || '');
+
+            if (fileList?.length > 0) {
+                fileList.forEach(item => formData.append('image', item.originFileObj));
+            }
+
+            // Дополнительные поля в зависимости от категории
+            if (['Супер салюты', 'Средние салюты', 'Малые салюты'].includes(values.category)) {
+                formData.append('shots', values.shots);
+                formData.append('caliber', values.caliber);
+                formData.append('duration', values.duration);
+            }
+
+            if (['Петарды', 'Рим свечи', 'Ракеты', 'Бенгальские огни'].includes(values.category)) {
+                formData.append('packQuantity', values.packQuantity);
+            }
+
+            if (['Петарды', 'Рим свечи'].includes(values.category)) {
+                formData.append('effect', values.effect);
+            }
+
+            if (values.category === 'Фонтаны') {
+                formData.append('height', values.height);
+            }
+
+            if (values.category === 'Бенгальские огни') {
+                formData.append('length', values.length);
+                formData.append('duration', values.duration);
+            }
+
+            const {data} = await axios.post('/createProduct', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             });
-            if (data._id) {
-                update();
-                setCreateModal(false);
+
+            if (data) {
                 notification.success({
                     message: 'Успех.',
-                    description: 'Вы добавили продукт.',
+                    description: 'Товар успешно создан.',
                     duration: 1.5
                 });
+                setCreateModal(false);
+                update();
             }
-        } catch (error) {
-            console.error(error);
+        } catch (e) {
+            console.log(e);
+            notification.error({
+                message: 'Ошибка при создании товара',
+                duration: 1.5
+            });
         }
     };
 
@@ -134,9 +139,6 @@ const AddProductModal = ({createModal, setCreateModal, update}) => {
             fields.push(
                 <MyFormItem key="height" name="height" label="Высота">
                     <Input />
-                </MyFormItem>,
-                <MyFormItem key="video" name="video" label="Видео">
-                    <Input />
                 </MyFormItem>
             );
         }
@@ -147,9 +149,6 @@ const AddProductModal = ({createModal, setCreateModal, update}) => {
                     <Input />
                 </MyFormItem>,
                 <MyFormItem key="duration" name="duration" label="Время">
-                    <Input />
-                </MyFormItem>,
-                <MyFormItem key="video" name="video" label="Видео">
                     <Input />
                 </MyFormItem>
             );
@@ -204,6 +203,15 @@ const AddProductModal = ({createModal, setCreateModal, update}) => {
                             </MyFormItem>
                             <MyFormItem name="price" label="Цена">
                                 <Input type="number" />
+                            </MyFormItem>
+                            <MyFormItem name="oldPrice" label="Старая цена">
+                                <Input type="number" />
+                            </MyFormItem>
+                            <MyFormItem name="inStock" label="В наличии" valuePropName="checked">
+                                <Switch defaultChecked />
+                            </MyFormItem>
+                            <MyFormItem name="video" label="Ссылка на видео (необязательно)">
+                                <Input placeholder="https://youtube.com/..." />
                             </MyFormItem>
                         </div>
                         <div className={style.rightCont}>
