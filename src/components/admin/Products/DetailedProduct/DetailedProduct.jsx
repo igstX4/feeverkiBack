@@ -78,7 +78,7 @@ const DetailedProduct = ({order}) => {
         );
 
         // Дополнительные поля в зависимости от категории
-        if (['Супер салюты', 'Средние салюты', 'Малые салюты'].includes(product.category)) {
+        if (product.category.toLowerCase().includes('салют')) {
             details.push(
                 <p key="shots" className={style.title}>Количество выстрелов: <span>{product.shots}</span></p>,
                 <p key="caliber" className={style.title}>Калибр: <span>{product.caliber}</span></p>,
@@ -86,34 +86,35 @@ const DetailedProduct = ({order}) => {
             );
         }
 
-        if (['Петарды', 'Рим свечи', 'Ракеты', 'Бенгальские огни'].includes(product.category)) {
+        if (product.category.toLowerCase().includes('петард') || 
+            product.category.toLowerCase().includes('свеч') || 
+            product.category.toLowerCase().includes('ракет') || 
+            product.category.toLowerCase().includes('бенгальск')) {
             details.push(
                 <p key="packQuantity" className={style.title}>Количество в упаковке: <span>{product.packQuantity}</span></p>
             );
         }
 
-        if (['Петарды', 'Рим свечи'].includes(product.category)) {
+        if (product.category.toLowerCase().includes('свеч')) {
             details.push(
-                <p key="effect" className={style.title}>Эффект: <span>{product.effect}</span></p>
+                <p key="caliber" className={style.title}>Калибр: <span>{product.caliber}</span></p>
             );
         }
 
-        if (product.category === 'Фонтаны') {
+        if (product.category.toLowerCase().includes('фонтан')) {
             details.push(
-                <p key="height" className={style.title}>Высота: <span>{product.height}</span></p>,
-                <p key="video" className={style.title}>Видео: <a href={product.video}>{product.video}</a></p>
+                <p key="height" className={style.title}>Высота: <span>{product.height}</span></p>
             );
         }
 
-        if (product.category === 'Бенгальские огни') {
+        if (product.category.toLowerCase().includes('бенгальск')) {
             details.push(
                 <p key="length" className={style.title}>Длина: <span>{product.length}</span></p>,
-                <p key="duration" className={style.title}>Время: <span>{product.duration}</span></p>,
-                <p key="video" className={style.title}>Видео: <a href={product.video}>{product.video}</a></p>
+                <p key="duration" className={style.title}>Время: <span>{product.duration}</span></p>
             );
         }
 
-        if (product.category === 'Ракеты') {
+        if (product.video) {
             details.push(
                 <p key="video" className={style.title}>Видео: <a href={product.video}>{product.video}</a></p>
             );

@@ -63,7 +63,8 @@ const EditProductModal = ({product, modal, setModal}) => {
 
         const fields = [];
 
-        if (['Супер салюты', 'Средние салюты', 'Малые салюты'].includes(selectedCategory)) {
+        // Проверяем содержит ли категория слово "салют"
+        if (selectedCategory.toLowerCase().includes('салют')) {
             fields.push(
                 <MyFormItem key="shots" name="shots" label="Количество выстрелов">
                     <Input type="number" />
@@ -77,7 +78,11 @@ const EditProductModal = ({product, modal, setModal}) => {
             );
         }
 
-        if (['Петарды', 'Рим свечи', 'Ракеты', 'Бенгальские огни'].includes(selectedCategory)) {
+        // Проверяем для петард, римских свечей, ракет и бенгальских огней
+        if (selectedCategory.toLowerCase().includes('петард') || 
+            selectedCategory.toLowerCase().includes('свеч') || 
+            selectedCategory.toLowerCase().includes('ракет') || 
+            selectedCategory.toLowerCase().includes('бенгальск')) {
             fields.push(
                 <MyFormItem key="packQuantity" name="packQuantity" label="Количество в упаковке">
                     <Input type="number" />
@@ -85,42 +90,31 @@ const EditProductModal = ({product, modal, setModal}) => {
             );
         }
 
-        if (['Петарды', 'Рим свечи'].includes(selectedCategory)) {
+        // Добавляем калибр для римских свечей
+        if (selectedCategory.toLowerCase().includes('свеч')) {
             fields.push(
-                <MyFormItem key="effect" name="effect" label="Эффект">
+                <MyFormItem key="caliber" name="caliber" label="Калибр">
                     <Input />
                 </MyFormItem>
             );
         }
 
-        if (selectedCategory === 'Фонтаны') {
+        // Проверяем для фонтанов
+        if (selectedCategory.toLowerCase().includes('фонтан')) {
             fields.push(
                 <MyFormItem key="height" name="height" label="Высота">
                     <Input />
-                </MyFormItem>,
-                <MyFormItem key="video" name="video" label="Видео">
-                    <Input />
                 </MyFormItem>
             );
         }
 
-        if (selectedCategory === 'Бенгальские огни') {
+        // Проверяем для бенгальских огней
+        if (selectedCategory.toLowerCase().includes('бенгальск')) {
             fields.push(
                 <MyFormItem key="length" name="length" label="Длина">
                     <Input />
                 </MyFormItem>,
                 <MyFormItem key="duration" name="duration" label="Время">
-                    <Input />
-                </MyFormItem>,
-                <MyFormItem key="video" name="video" label="Видео">
-                    <Input />
-                </MyFormItem>
-            );
-        }
-
-        if (selectedCategory === 'Ракеты') {
-            fields.push(
-                <MyFormItem key="video" name="video" label="Видео">
                     <Input />
                 </MyFormItem>
             );
@@ -156,8 +150,8 @@ const EditProductModal = ({product, modal, setModal}) => {
             formData.append("packQuantity", values.packQuantity);
         }
 
-        if (['Петарды', 'Рим свечи'].includes(values.category)) {
-            formData.append("effect", values.effect);
+        if (values.category.toLowerCase().includes('свеч')) {
+            formData.append('caliber', values.caliber);
         }
 
         if (values.category === 'Фонтаны') {
