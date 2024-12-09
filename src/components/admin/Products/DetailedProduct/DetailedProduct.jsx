@@ -103,7 +103,9 @@ const DetailedProduct = ({order}) => {
 
         if (product.category.toLowerCase().includes('фонтан')) {
             details.push(
-                <p key="height" className={style.title}>Высота: <span>{product.height}</span></p>
+                <p key="height" className={style.title}>Высота: <span>{product.height}</span></p>,
+                <p key="shots" className={style.title}>Количество выстрелов: <span>{product.shots}</span></p>,
+                <p key="duration" className={style.title}>Время: <span>{product.duration}</span></p>
             );
         }
 

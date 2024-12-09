@@ -44,7 +44,7 @@ export const Catalog = () => {
         ],
         other: [
             {
-                path: '/category/Фонтаны',
+                path: '/category/Фонтаны. Дымы.',
                 image: image1,
                 title: 'Фонтаны'
             },
@@ -69,7 +69,7 @@ export const Catalog = () => {
                 title: 'Петарды'
             },
             {
-                path: '/category/Ракеты',
+                path: '/category/Ракеты. Летающие шутихи.',
                 image: image6,
                 title: 'Ракеты'
             }

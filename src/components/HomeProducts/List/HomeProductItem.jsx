@@ -35,6 +35,24 @@ const HomeProductItem = ({ product }) => {
             );
         }
 
+        // Для фонтанов
+        if (product.category.toLowerCase().includes('фонтан')) {
+            details.push(
+                <div key="height" className={style.item}>
+                    <img src={zalp} alt='/' />
+                    <p>Высота: {product.height}</p>
+                </div>,
+                <div key="shots" className={style.item}>
+                    <img src={bobmbs} alt='/' />
+                    <p>{product.shots} выстрелов</p>
+                </div>,
+                <div key="duration" className={style.item}>
+                    <img src={sekundomer} alt='/' style={{ height: "20px" }} />
+                    <p>Время: {product.duration}</p>
+                </div>
+            );
+        }
+
         // ... остальной код renderProductDetails ...
 
         return details;

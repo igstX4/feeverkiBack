@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import s from '../SuperFireworks/SuperFireworks.module.scss'
-import {Slider} from "antd";
+import {Select, Slider} from "antd";
 import Layout from '../../Layouts/Layout'
 import TextWithLines from '../../components/TextWithLines/TextWithLines'
 import HomeProductItem from '../../components/HomeProducts/List/HomeProductItem'
@@ -15,6 +15,7 @@ const DifferentFireworks = ({defaultFilter, category}) => {
     const [lineText, setLineText] = useState('')
     const [desk, setDesk] = useState()
     const [filteredArr, setFilteredArr] = useState()
+    const [sortOrder, setSortOrder] = useState('default')
     const {type, name} = useParams()
 
     const getProducts = async () => {
@@ -65,16 +66,34 @@ const DifferentFireworks = ({defaultFilter, category}) => {
     const filterArr = () => {
         if (!products) return;
 
-        // Фильтрация только по диапазону цен
-        const filtered = products.filter(item => 
+        // Фильтрация по диапазону цен
+        let filtered = products.filter(item => 
             item.price >= priceRange[0] && item.price <= priceRange[1]
         );
+
+        // Сортировка
+        switch(sortOrder) {
+            case 'priceAsc':
+                filtered = [...filtered].sort((a, b) => a.price - b.price);
+                break;
+            case 'priceDesc':
+                filtered = [...filtered].sort((a, b) => b.price - a.price);
+                break;
+            default:
+                // Оставляем исходный порядок
+                break;
+        }
 
         setFilteredArr(filtered);
     };
 
     const handlePriceChange = (value) => {
         setPriceRange(value);
+    };
+
+    const handleSortChange = (value) => {
+        setSortOrder(value);
+        setTimeout(filterArr, 0);
     };
 
     return (
@@ -111,11 +130,25 @@ const DifferentFireworks = ({defaultFilter, category}) => {
                                 </div>
                             </div>
                         </div>
+                        <div className={s.inputItem}>
+                            <p>Сортировка:</p>
+                            <Select
+                                style={{ width: '100%' }}
+                                value={sortOrder}
+                                onChange={handleSortChange}
+                                options={[
+                                    { value: 'default', label: 'По умолчанию' },
+                                    { value: 'priceAsc', label: 'Сначала дешевле' },
+                                    { value: 'priceDesc', label: 'Сначала дороже' }
+                                ]}
+                            />
+                        </div>
                         <div className={s.filterButtons}>
                             <button onClick={filterArr}>Применить фильтры</button>
                             <button 
                                 onClick={() => {
                                     setPriceRange([0, 3000]);
+                                    setSortOrder('default');
                                     setFilteredArr(products);
                                 }}
                                 className={s.resetButton}

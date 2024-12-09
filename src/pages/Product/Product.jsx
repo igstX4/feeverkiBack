@@ -68,12 +68,17 @@ const Product = () => {
             );
         }
 
-        if (product.category === 'Фонтаны') {
+        if (product.category.toLowerCase().includes('фонтан')) {
             details.push(
                 {
                     name: "Высота",
                     value: product.height,
                     icon: zalp
+                },
+                {
+                    name: "Количество выстрелов",
+                    value: product.shots,
+                    icon: bobmbs
                 },
                 {
                     name: "Время",

@@ -104,6 +104,12 @@ const EditProductModal = ({product, modal, setModal}) => {
             fields.push(
                 <MyFormItem key="height" name="height" label="Высота">
                     <Input />
+                </MyFormItem>,
+                <MyFormItem key="shots" name="shots" label="Количество выстрелов">
+                    <Input type="number" />
+                </MyFormItem>,
+                <MyFormItem key="duration" name="duration" label="Время">
+                    <Input />
                 </MyFormItem>
             );
         }
@@ -156,6 +162,8 @@ const EditProductModal = ({product, modal, setModal}) => {
 
         if (values.category === 'Фонтаны') {
             formData.append("height", values.height);
+            formData.append("shots", values.shots);
+            formData.append("duration", values.duration);
         }
 
         if (values.category === 'Бенгальские огни') {
