@@ -22,11 +22,11 @@ const Product = () => {
 
     useEffect(() => {
         const getProduct = async () => {
-            const { data } = await axios.get(`/productByName/${params?.productName}`)
+            const { data } = await axios.get(`/productById/${params?.id}`)
             setProduct(data)
         }
         getProduct()
-    }, [params?.productName])
+    }, [params?.id])
 
     const renderProductDetails = () => {
         if (!product) return [];
@@ -34,88 +34,105 @@ const Product = () => {
         const details = [];
 
         if (['Супер салюты', 'Средние салюты', 'Малые салюты'].includes(product.category)) {
-            details.push(
-                {
+            if (product.shots) {
+                details.push({
                     name: "Залпов",
                     value: product.shots,
                     icon: zalp
-                },
-                {
+                });
+            }
+            if (product.caliber) {
+                details.push({
                     name: "Калибр",
                     value: product.caliber,
                     icon: bobmbs
-                },
-                {
+                });
+            }
+            if (product.duration) {
+                details.push({
                     name: "Время",
                     value: product.duration,
                     icon: sekundomer
-                }
-            );
-        }
-
-        if (['Петарды', 'Рим свечи'].includes(product.category)) {
-            details.push(
-                {
-                    name: "Количество",
-                    value: `${product.packQuantity} шт. в упаковке`,
-                    icon: zalp
-                },
-                {
-                    name: "Эффект",
-                    value: product.effect,
-                    icon: bobmbs
-                }
-            );
+                });
+            }
         }
 
         if (product.category.toLowerCase().includes('фонтан')) {
-            details.push(
-                {
+            if (product.height) {
+                details.push({
                     name: "Высота",
                     value: product.height,
                     icon: zalp
-                },
-                {
-                    name: "Количество выстрелов",
-                    value: product.shots,
-                    icon: bobmbs
-                },
-                {
+                });
+            }
+            if (product.duration) {
+                details.push({
                     name: "Время",
                     value: product.duration,
                     icon: sekundomer
-                }
-            );
+                });
+            }
+        }
+
+        if (product.category.toLowerCase().includes('свеч')) {
+            if (product.packQuantity) {
+                details.push({
+                    name: "Количество",
+                    value: `${product.packQuantity} шт. в упаковке`,
+                    icon: zalp
+                });
+            }
+            if (product.caliber) {
+                details.push({
+                    name: "Калибр",
+                    value: product.caliber,
+                    icon: bobmbs
+                });
+            }
         }
 
         if (product.category === 'Бенгальские огни') {
-            details.push(
-                {
+            if (product.length) {
+                details.push({
                     name: "Длина",
                     value: product.length,
                     icon: zalp
-                },
-                {
+                });
+            }
+            if (product.packQuantity) {
+                details.push({
                     name: "Количество",
                     value: `${product.packQuantity} шт. в упаковке`,
                     icon: bobmbs
-                },
-                {
+                });
+            }
+            if (product.duration) {
+                details.push({
                     name: "Время",
                     value: product.duration,
                     icon: sekundomer
-                }
-            );
+                });
+            }
         }
 
-        if (product.category === 'Ракеты') {
-            details.push(
-                {
+        if (product.category.toLowerCase().includes('ракет')) {
+            if (product.packQuantity) {
+                details.push({
+                    name: "Количество в упаковке",
+                    value: `${product.packQuantity} шт.`,
+                    icon: zalp
+                });
+            }
+        }
+
+        if (product.category === 'Петарды') {
+            if (product.packQuantity) {
+                details.push({
                     name: "Количество",
                     value: `${product.packQuantity} шт. в упаковке`,
                     icon: zalp
-                }
-            );
+                });
+            }
         }
 
         return details;

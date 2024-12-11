@@ -145,9 +145,6 @@ const AddProductModal = ({createModal, setCreateModal, update}) => {
                 <MyFormItem key="height" name="height" label="Высота">
                     <Input />
                 </MyFormItem>,
-                <MyFormItem key="shots" name="shots" label="Количество выстрелов">
-                    <Input type="number" />
-                </MyFormItem>,
                 <MyFormItem key="duration" name="duration" label="Время">
                     <Input />
                 </MyFormItem>

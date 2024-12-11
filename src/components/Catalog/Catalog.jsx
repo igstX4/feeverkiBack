@@ -27,19 +27,19 @@ export const Catalog = () => {
                 path: '/catalog/super',
                 image: salyt2,
                 title: 'СУПЕР САЛЮТЫ',
-                description: 'ОТ 347 BYN'
+                description: 'ОТ 500 BYN'
             },
             {
                 path: '/catalog/big',
                 image: zalp,
                 title: 'БОЛЬШИЕ САЛЮТЫ',
-                description: 'ОТ 290 ДО 599 BYN'
+                description: 'ОТ 200 ДО 500 BYN'
             },
             {
                 path: '/catalog/small',
                 image: miniSalyt,
                 title: 'МАЛЫЕ САЛЮТЫ',
-                description: 'ДО 104 BYN'
+                description: 'ДО 199 BYN'
             }
         ],
         other: [

@@ -61,7 +61,7 @@ function App() {
                             <Route path='/' element={<Home />} />
                             <Route path='/catalog/:type' element={<DifferentFireworks />} />
                             <Route path='/category/:name' element={<DifferentFireworks category={true} />} />
-                            <Route path='/product/:productName' element={<Product />} />
+                            <Route path='/product/:id' element={<Product />} />
                             <Route path='/paymentInfo' element={<DeliveryAndPayment />} />
                             <Route path='/stock' element={<DiscountsPage />} />
                             <Route path='/reviews' element={<ReviewsPage />} />

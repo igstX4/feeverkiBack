@@ -77,7 +77,7 @@ const HomeProductItem = ({ product }) => {
     };
 
     return (
-        <div className={style.itemWrapper} onClick={() => navigate(`/product/${product?.name}`)}>
+        <div className={style.itemWrapper} onClick={() => navigate(`/product/${product?._id}`)}>
             <div className={style.imgDiv}>
                 <img className={style.imgf} src={`${url}/uploads/${product?.image}`} alt='/' />
             </div>
@@ -96,9 +96,9 @@ const HomeProductItem = ({ product }) => {
             </div>
             <div className={style.line} />
             <div className={style.productDescr}>
-                <div className={style.descrItem}>
+                {/* <div className={style.descrItem}>
                     {renderProductDetails()}
-                </div>
+                </div> */}
             </div>
             <div className={style.addToBasket}>
                 {product?.video && (
