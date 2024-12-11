@@ -61,9 +61,9 @@ const Basket = () => {
                                     </button>
                                 </div>
                                 <div className={styles.price}>
-                                    <p className={styles.currentPrice}>{item.price * item.quantity} BYN</p>
+                                    <p className={styles.currentPrice}>{item.price * item.quantity} р.</p>
                                     {item.oldPrice && (
-                                        <p className={styles.oldPrice}>{item.oldPrice * item.quantity} BYN</p>
+                                        <p className={styles.oldPrice}>{item.oldPrice * item.quantity} р.</p>
                                     )}
                                 </div>
                                 <div className={styles.btn} onClick={() => dispatch(deleteFromCart({ _id: item._id }))}>
@@ -86,7 +86,7 @@ const Basket = () => {
                                 <p onClick={() => setOpen(false)} className={styles.back}>
                                     Назад
                                 </p>
-                                <p className={styles.totalMoney}>Итого: {totalPrice} BYN</p>
+                                <p className={styles.totalMoney}>Итого: {totalPrice} р.</p>
                             </div>
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className={styles.nameInputDiv}>
@@ -132,7 +132,7 @@ const Basket = () => {
                             </div>
                             <div className={styles.greyBg}>
                                 <div className={styles.total}>
-                                    <p>Итого: {totalPrice} BYN</p>
+                                    <p>Итого: {totalPrice} р.</p>
                                 </div>
                             </div>
                             <div className={styles.orderText}>

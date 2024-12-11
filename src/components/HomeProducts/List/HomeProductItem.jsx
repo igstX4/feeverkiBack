@@ -85,9 +85,9 @@ const HomeProductItem = ({ product }) => {
                 <h3>{product?.name}</h3>
                 <p className={style.article}>Артикул: {product?.article}</p>
                 <div className={style.priceBlock}>
-                    <p className={style.price}>{product.price} BYN</p>
+                    <p className={style.price}>{product.price} р.</p>
                     {product.oldPrice && (
-                        <p className={style.oldPrice}>{product.oldPrice} BYN</p>
+                        <p className={style.oldPrice}>{product.oldPrice} р.</p>
                     )}
                 </div>
                 <p className={`${style.availability} ${!product.inStock ? style.outOfStock : ''}`}>

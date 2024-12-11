@@ -211,9 +211,9 @@ const Product = () => {
                                 </p>
                                 <div className={style.priceBlock}>
                                     <div className={style.prices}>
-                                        <p className={style.price}>{product.price} BYN</p>
+                                        <p className={style.price}>{product.price} р.</p>
                                         {product.oldPrice && (
-                                            <p className={style.oldPrice}>{product.oldPrice} BYN</p>
+                                            <p className={style.oldPrice}>{product.oldPrice} р.</p>
                                         )}
                                     </div>
                                 </div>
