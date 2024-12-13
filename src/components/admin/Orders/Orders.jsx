@@ -28,7 +28,6 @@ const Orders = () => {
 
     return (
         <div className={style.categoryContainer}>
-            {/*<AddProductModal update={getProducts} createModal={createModal} setCreateModal={setCreateModal}/>*/}
             <div className={style.categoryTitle}>
                 <h1>Список заказов</h1>
             </div>
@@ -38,7 +37,7 @@ const Orders = () => {
             </div>
             <main className={style.table}>
                 <section className={style.tableBody}>
-                    <table style={{marginTop: "10px"}}>
+                    <table>
                         <thead>
                         <tr className={style.tr}>
                             <th>

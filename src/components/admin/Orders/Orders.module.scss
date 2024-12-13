@@ -104,6 +104,24 @@ tbody {
   align-items: center;
   overflow-x: auto;
 
+  .tableBody {
+    max-height: 380px;
+    overflow-y: auto;
+    width: 100%;
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    thead {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 1;
+    }
+  }
+
   @media (max-width: 768px) {
     .tr {
       display: flex;
